@@ -63,6 +63,16 @@ glab repo view --web   # opens the current repo's GitLab page
 
 ## Opening a merge request
 
+Generate a runtime MR description from the template (gitignored, kept out of the tree):
+
+```bash
+cp coder-light/templates/mr-description.md ./.mr.md
+# fill in summary, why, test evidence
+rg -q '^\.mr\.md$' .gitignore || printf '\n.mr.md\n' >> .gitignore
+```
+
+Then push and open the MR:
+
 ```bash
 git push -u origin "$(git branch --show-current)"
 
@@ -73,8 +83,6 @@ glab mr create \
   --remove-source-branch \
   --squash-before-merge
 ```
-
-Generate `./.mr.md` from `coder-light/templates/mr-description.md`.
 
 For draft MRs (work in progress, want pipeline feedback):
 

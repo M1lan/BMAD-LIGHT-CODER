@@ -86,10 +86,19 @@ Then go to Step 5 (cleanup worktree).
 
 ### Option 2 — Push and open an MR
 
+First, generate a runtime MR description from the template:
+
+```bash
+cp coder-light/templates/mr-description.md ./.mr.md
+# edit ./.mr.md to fill in summary, why, test evidence -- it is gitignored
+printf '\n.mr.md\n' >> .gitignore   # one-time, if not already ignored
+```
+
+Then push and open the MR:
+
 ```bash
 git push -u origin <feature-branch>
 
-# Open the MR against ista-se
 glab mr create \
   --target-branch <base> \
   --title "<conventional-commit subject>" \
@@ -97,8 +106,6 @@ glab mr create \
   --remove-source-branch \
   --squash-before-merge
 ```
-
-Generate `./.mr.md` from `coder-light/templates/mr-description.md`.
 
 If the project requires draft MRs:
 
