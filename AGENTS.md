@@ -31,6 +31,11 @@ hallucinations, etc.
   via the `prepare` script. Hooks: gitleaks, pre-commit-hooks, shellcheck,
   actionlint, rumdl, plus local prettier/eslint/validators. Config is
   `.pre-commit-config.yaml`. There is no `.husky/` directory.
+- **Husky leftover gotcha.** Older clones may have a stale local
+  `core.hooksPath = .husky/_` from when this project used husky. It makes
+  `pre-commit install` refuse with *"Cowardly refusing..."*. Both the
+  `prepare` script and `just hooks-install` auto-detect and unset it when
+  the path doesn't exist. Manual fix: `git config --local --unset-all core.hooksPath`.
 - **Markdown lints with rumdl, not markdownlint-cli2.** Config is
   `.rumdl.toml`. `markdownlint-cli2` is no longer a devDep.
 - **Justfile is the canonical task runner.** `just --list` shows

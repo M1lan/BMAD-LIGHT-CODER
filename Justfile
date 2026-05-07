@@ -155,9 +155,14 @@ hooks-update:
       pre-commit autoupdate; \
     fi
 
-# Re-install git hooks.
+# Re-install git hooks. Auto-fixes stale husky core.hooksPath leftover.
 [group('hooks')]
 hooks-install:
+    hp=$(git config --local --get core.hooksPath 2>/dev/null || true); \
+    if [[ -n "$hp" && ! -d "$hp" ]]; then \
+      echo "unsetting stale core.hooksPath=$hp (husky leftover)"; \
+      git config --local --unset-all core.hooksPath; \
+    fi
     pre-commit install
 
 # ── Verify (mandatory pre-push gate) ─────────────────────────────

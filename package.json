@@ -17,7 +17,7 @@
     "lint:md": "rumdl check .",
     "lint:md:fix": "rumdl check --fix .",
     "lint:shell": "files=$(fd -e sh -e bash --exclude node_modules --exclude .git --hidden 2>/dev/null || true); if [ -n \"$files\" ]; then echo \"$files\" | xargs shellcheck; fi",
-    "prepare": "command -v pre-commit >/dev/null 2>&1 && pre-commit install || true",
+    "prepare": "node -e \"try{const cp=require('child_process');const hp=cp.execSync('git config --local --get core.hooksPath',{stdio:['ignore','pipe','ignore']}).toString().trim();const fs=require('fs');if(hp&&!fs.existsSync(hp)){cp.execSync('git config --local --unset-all core.hooksPath')}}catch{}\" && (command -v pre-commit >/dev/null 2>&1 && pre-commit install || true)",
     "quality": "pnpm format:check && pnpm lint && pnpm lint:md && pnpm lint:shell && pnpm test:install && pnpm test:urls && pnpm validate:refs && pnpm validate:skills",
     "test": "pnpm test:refs && pnpm test:install && pnpm test:urls && pnpm test:channels && pnpm lint && pnpm lint:md && pnpm format:check",
     "test:channels": "node test/test-installer-channels.js",
