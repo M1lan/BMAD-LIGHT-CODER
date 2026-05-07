@@ -4,7 +4,6 @@
 ignores:
   - "**/node_modules/**"
   - test/fixtures/**
-  - CODE_OF_CONDUCT.md
   - _bmad/**
   - _bmad*/**
   - .agent/**
@@ -12,8 +11,6 @@ ignores:
   - .roo/**
   - .codex/**
   - .kiro/**
-  - sample-project/**
-  - test-project-install/**
   - z*/**
 
 # Rule configuration

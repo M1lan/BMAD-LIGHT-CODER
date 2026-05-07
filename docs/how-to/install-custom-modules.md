@@ -25,7 +25,7 @@ Community modules are curated in the [BMad plugins marketplace](https://github.c
 ### 1. Run the Installer
 
 ```bash
-npx bmad-method install
+pnpm bmad:install
 ```
 
 ### 2. Browse the Community Catalog
@@ -81,7 +81,7 @@ The installer clones the repository (for URLs) or reads directly from disk (for 
 Use the `--custom-source` flag to install custom modules from the command line:
 
 ```bash
-npx bmad-method install \
+pnpm bmad:install \
   --directory . \
   --custom-source /path/to/my-module \
   --tools claude-code \
@@ -91,7 +91,7 @@ npx bmad-method install \
 When `--custom-source` is provided without `--modules`, only core and the custom modules are installed. To include official modules as well, add `--modules`:
 
 ```bash
-npx bmad-method install \
+pnpm bmad:install \
   --directory . \
   --modules bmm \
   --custom-source https://gitlab.com/myorg/my-module \
@@ -125,7 +125,7 @@ The `.claude-plugin/marketplace.json` path is a standard convention adopted acro
 If you are building a module with [BMad Builder](https://github.com/bmad-code-org/bmad-builder), you can install it directly from your working directory:
 
 ```bash
-npx bmad-method install \
+pnpm bmad:install \
   --directory ~/my-project \
   --custom-source ~/my-module-repo/skills \
   --tools claude-code \

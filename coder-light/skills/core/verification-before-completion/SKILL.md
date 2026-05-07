@@ -136,7 +136,7 @@ ruff check . && ruff format --check . && pytest
 ./gradlew detekt ktlintCheck test
 
 # This repo (BMAD)
-npm run quality
+pnpm quality
 ```
 
 If the project defines a single verify recipe (e.g. `just verify`), use that.

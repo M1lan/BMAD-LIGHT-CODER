@@ -20,7 +20,7 @@ Agent menu triggers require an active agent session. Use skills when you know wh
 
 ## How Skills Are Generated
 
-When you run `npx bmad-method install`, the installer reads the manifests for every selected module and writes one skill per agent, workflow, task, and tool. Each skill is a directory containing a `SKILL.md` file that instructs the AI to load the corresponding source file and follow its instructions.
+When you run `pnpm bmad:install`, the installer reads the manifests for every selected module and writes one skill per agent, workflow, task, and tool. Each skill is a directory containing a `SKILL.md` file that instructs the AI to load the corresponding source file and follow its instructions.
 
 The installer uses templates for each skill type:
 
@@ -130,6 +130,6 @@ All skills use the `bmad-` prefix followed by a descriptive name (e.g., `bmad-ag
 
 **Skills not appearing after install.** Some platforms require skills to be explicitly enabled in settings. Check your IDE's documentation or ask your AI assistant how to enable skills. You may also need to restart your IDE or reload the window.
 
-**Expected skills are missing.** The installer only generates skills for modules you selected. Run `npx bmad-method install` again and verify your module selection. Check that the skill files exist in the expected directory.
+**Expected skills are missing.** The installer only generates skills for modules you selected. Run `pnpm bmad:install` again and verify your module selection. Check that the skill files exist in the expected directory.
 
 **Skills from a removed module still appear.** The installer does not delete old skill files automatically. Remove the stale directories from your IDE's skills directory, or delete the entire skills directory and re-run the installer for a clean set.

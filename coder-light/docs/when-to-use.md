@@ -49,6 +49,6 @@ If you answered "continue" to all the relevant questions: use **coder-light**.
 
 ## Switching between
 
-You can move from coder-light to full BMAD when the project grows up. The plan format (`plans/YYYY-MM-DD-<slug>.md`) and the skill format are compatible. Add the `bmm` module via `npx bmad-method install` and start producing PRDs / stories alongside the existing work. coder-light's skills don't conflict with full BMAD's.
+You can move from coder-light to full BMAD when the project grows up. The plan format (`plans/YYYY-MM-DD-<slug>.md`) and the skill format are compatible. Add the `bmm` module via `pnpm dlx bmad-method install` and start producing PRDs / stories alongside the existing work. coder-light's skills don't conflict with full BMAD's.
 
 You can also stay in coder-light forever. There is no graduation requirement.

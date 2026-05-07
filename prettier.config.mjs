@@ -28,5 +28,4 @@ export default {
       options: { parser: 'babel' },
     },
   ],
-  plugins: ['prettier-plugin-packagejson'],
 };

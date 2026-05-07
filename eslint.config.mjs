@@ -8,36 +8,21 @@ export default [
   // Global ignores for files/folders that should not be linted
   {
     ignores: [
-      'dist/**',
       'coverage/**',
       '**/*.min.js',
-      'test/template-test-generator/**',
       'test/fixtures/**',
       '_bmad*/**',
-      // Build output
-      'build/**',
-      // Website uses ESM/Astro - separate linting ecosystem
-      'website/**',
       // Gitignored patterns
-      'z*/**', // z-samples, z1, z2, etc.
+      'z*/**',
       '.claude/**',
       '.codex/**',
-      '.github/chatmodes/**',
       '.agent/**',
-      '.agentvibes/**',
       '.kiro/**',
       '.roo/**',
-      'test-project-install/**',
-      'sample-project/**',
-      'tools/template-test-generator/test-scenarios/**',
-      'src/modules/*/sub-modules/**',
-      '.bundler-temp/**',
-      // Lock files — generated, gitignored, not project code
+      // Lock files — generated, not project code
       'pnpm-lock.yaml',
       'bun.lock',
-      // Augment vendor config — not project code, naming conventions
-      // are dictated by Augment and can't be changed, so exclude
-      // the entire directory from linting
+      // Vendor config — naming dictated by tool
       '.augment/**',
     ],
   },

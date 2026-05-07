@@ -8,7 +8,7 @@ For community modules - this will be handled in a different way. This file is on
 
 ## Post-Install Notes
 
-Modules can display setup guidance to users after configuration is collected during `npx bmad-method install`. Notes are defined in the module's own `module.yaml` — no changes to the installer are needed.
+Modules can display setup guidance to users after configuration is collected during `pnpm bmad:install`. Notes are defined in the module's own `module.yaml` — no changes to the installer are needed.
 
 ### Simple Format
 

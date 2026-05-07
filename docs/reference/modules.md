@@ -8,7 +8,7 @@ sidebar:
 BMad extends through official modules that you select during installation. These add-on modules provide specialized agents, workflows, and tasks for specific domains beyond the built-in core and BMM (Agile suite).
 
 :::tip[Installing Modules]
-Run `npx bmad-method install` and select the modules you want. The installer handles downloading, configuration, and IDE integration automatically.
+Run `pnpm bmad:install` and select the modules you want. The installer handles downloading, configuration, and IDE integration automatically.
 :::
 
 ## BMad Builder
