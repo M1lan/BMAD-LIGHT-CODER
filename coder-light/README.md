@@ -56,7 +56,7 @@ coder-light/
 In a fresh repo:
 
 ```bash
-git clone --depth=1 https://gitlab.com/ista-se/BMAD-METHOD.git /tmp/bmad
+git clone --depth=1 -b coder-light git@github.com:M1lan/BMAD-LIGHT-CODER.git /tmp/bmad
 mkdir -p .agent
 cp -r /tmp/bmad/coder-light .agent/
 ln -s .agent/coder-light/AGENTS.md AGENTS.md   # optional: surface rules to your agent

@@ -9,7 +9,7 @@ Drop the `coder-light/` tree into your project so the AI assistant can find and 
 In a fresh repo:
 
 ```bash
-git clone --depth=1 https://gitlab.com/ista-se/BMAD-METHOD.git /tmp/bmad
+git clone --depth=1 -b coder-light git@github.com:M1lan/BMAD-LIGHT-CODER.git /tmp/bmad
 mkdir -p .agent
 cp -r /tmp/bmad/coder-light .agent/
 ln -s .agent/coder-light/AGENTS.md AGENTS.md
@@ -27,7 +27,7 @@ The skills now live at `.agent/coder-light/skills/<category>/<skill>/SKILL.md`. 
 ## Option 2 — git submodule (stays in sync)
 
 ```bash
-git submodule add https://gitlab.com/ista-se/BMAD-METHOD.git .agent/upstream
+git submodule add -b coder-light git@github.com:M1lan/BMAD-LIGHT-CODER.git .agent/upstream
 ln -s upstream/coder-light .agent/coder-light
 ln -s .agent/coder-light/AGENTS.md AGENTS.md
 git add .agent AGENTS.md .gitmodules
@@ -45,11 +45,11 @@ git commit -m "chore(deps): bump bmad-coder-light"
 ## Option 3 — sparse checkout (only the coder-light tree)
 
 ```bash
-git clone --filter=blob:none --no-checkout https://gitlab.com/ista-se/BMAD-METHOD.git .agent/upstream
+git clone --filter=blob:none --no-checkout git@github.com:M1lan/BMAD-LIGHT-CODER.git .agent/upstream
 cd .agent/upstream
 git sparse-checkout init --cone
 git sparse-checkout set coder-light
-git checkout main
+git checkout coder-light
 cd ../..
 ln -s upstream/coder-light .agent/coder-light
 ln -s .agent/coder-light/AGENTS.md AGENTS.md
