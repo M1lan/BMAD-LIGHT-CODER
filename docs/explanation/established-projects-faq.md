@@ -4,6 +4,7 @@ description: Common questions about using BMad Method on established projects
 sidebar:
   order: 8
 ---
+
 Quick answers to common questions about working on established projects with the BMad Method (BMM).
 
 ## Questions

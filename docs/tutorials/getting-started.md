@@ -14,6 +14,7 @@ Build software faster using AI-powered workflows with specialized agents that gu
 - Use agents and workflows effectively
 
 :::note[Prerequisites]
+
 - **Node.js 20+** — Required for the installer
 - **Git** — Recommended for version control
 - **AI-powered IDE** — Claude Code, Cursor, or similar
@@ -39,17 +40,18 @@ Build software faster using AI-powered workflows with specialized agents that gu
 
 Run it in your AI IDE by invoking the skill:
 
-```
+```text
 bmad-help
 ```
 
 Or combine it with a question for context-aware guidance:
 
-```
+```text
 bmad-help I have an idea for a SaaS product, I already know all the features I want. where do I get started?
 ```
 
 BMad-Help will respond with:
+
 - What's recommended for your situation
 - What the first required task is
 - What the rest of the process looks like
@@ -98,13 +100,14 @@ pnpm bmad:install
 When prompted to select modules, choose **BMad Method**.
 
 The installer creates two folders:
+
 - `_bmad/` — agents, workflows, tasks, and configuration
 - `_bmad-output/` — empty for now, but this is where your artifacts will be saved
 
 :::tip[Your Next Step]
 Open your AI IDE in the project folder and run:
 
-```
+```text
 bmad-help
 ```
 
@@ -132,6 +135,7 @@ Create it manually at `_bmad-output/project-context.md` or generate it after arc
 ### Phase 1: Analysis (Optional)
 
 All workflows in this phase are optional. [**Not sure which to use?**](../explanation/analysis-phase.md)
+
 - **brainstorming** (`bmad-brainstorming`) — Guided ideation
 - **research** (`bmad-market-research` / `bmad-domain-research` / `bmad-technical-research`) — Market, domain, and technical research
 - **product-brief** (`bmad-product-brief`) — Recommended foundation document when your concept is clear
@@ -140,11 +144,13 @@ All workflows in this phase are optional. [**Not sure which to use?**](../explan
 ### Phase 2: Planning (Required)
 
 **For BMad Method and Enterprise tracks:**
+
 1. Invoke the **PM agent** (`bmad-agent-pm`) in a new chat
 2. Run the `bmad-create-prd` workflow (`bmad-create-prd`)
 3. Output: `PRD.md`
 
 **For Quick Flow track:**
+
 - Run `bmad-quick-dev` — it handles planning and implementation in a single workflow, skip to implementation
 
 :::note[UX Design (Optional)]
@@ -153,22 +159,24 @@ If your project has a user interface, invoke the **UX-Designer agent** (`bmad-ag
 
 ### Phase 3: Solutioning (BMad Method/Enterprise)
 
-**Create Architecture**
+#### Create Architecture
+
 1. Invoke the **Architect agent** (`bmad-agent-architect`) in a new chat
 2. Run `bmad-create-architecture` (`bmad-create-architecture`)
 3. Output: Architecture document with technical decisions
 
-**Create Epics and Stories**
+#### Create Epics and Stories
 
-:::tip[V6 Improvement]
+::::tip[V6 Improvement]
 Epics and stories are now created *after* architecture. This produces better quality stories because architecture decisions (database, API patterns, tech stack) directly affect how work should be broken down.
-:::
+::::
 
 1. Invoke the **PM agent** (`bmad-agent-pm`) in a new chat
 2. Run `bmad-create-epics-and-stories` (`bmad-create-epics-and-stories`)
 3. The workflow uses both PRD and Architecture to create technically-informed stories
 
-**Implementation Readiness Check** *(Highly Recommended)*
+#### Implementation Readiness Check (Highly Recommended)
+
 1. Invoke the **Architect agent** (`bmad-agent-architect`) in a new chat
 2. Run `bmad-check-implementation-readiness` (`bmad-check-implementation-readiness`)
 3. Validates cohesion across all planning documents
@@ -251,6 +259,7 @@ Not strictly. Once you learn the flow, you can run workflows directly using the 
 
 :::tip[First Stop: BMad-Help]
 **Invoke `bmad-help` anytime** — it's the fastest way to get unstuck. Ask it anything:
+
 - "What should I do after installing?"
 - "I'm stuck on workflow X"
 - "What are my options for Y?"
@@ -265,6 +274,7 @@ BMad-Help inspects your project, detects what you've completed, and tells you ex
 ## Key Takeaways
 
 :::tip[Remember These]
+
 - **Start with `bmad-help`** — Your intelligent guide that knows your project and options
 - **Always use fresh chats** — Start a new chat for each workflow
 - **Track matters** — Quick Flow uses `bmad-quick-dev`; Method/Enterprise need PRD and architecture

@@ -8,6 +8,7 @@ yarn.lock
 *.log
 logs/
 test-output/
+.rumdl_cache/
 .env
 
 # OS

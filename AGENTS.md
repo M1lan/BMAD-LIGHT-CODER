@@ -24,9 +24,17 @@ hallucinations, etc.
   - The rest of the repo (`src/`, `tools/`, `docs/`) is the BMM framework
     used by the local installer (`pnpm bmad:install`).
 - **`pnpm quality` is mandatory before every push.** It runs `format:check`,
-  `lint`, `lint:md`, `test:install`, `test:urls`, `validate:refs`,
-  `validate:skills`. Run it on the exact checkout you are about to push,
-  not a stale one.
+  `lint`, `lint:md` (rumdl), `lint:shell`, `test:install`, `test:urls`,
+  `validate:refs`, `validate:skills`. Run it on the exact checkout you are
+  about to push, not a stale one.
+- **Pre-commit framework, not husky.** `pnpm install` runs `pre-commit install`
+  via the `prepare` script. Hooks: gitleaks, pre-commit-hooks, shellcheck,
+  actionlint, rumdl, plus local prettier/eslint/validators. Config is
+  `.pre-commit-config.yaml`. There is no `.husky/` directory.
+- **Markdown lints with rumdl, not markdownlint-cli2.** Config is
+  `.rumdl.toml`. `markdownlint-cli2` is no longer a devDep.
+- **Justfile is the canonical task runner.** `just --list` for recipes,
+  `just fzf` for the interactive picker. `just verify` == `pnpm quality`.
 - **Skill files are validated.** Anything claiming to be a skill must satisfy
   the rules in `tools/skill-validator.md`. `pnpm validate:skills`
   enforces the deterministic subset.
@@ -35,7 +43,7 @@ hallucinations, etc.
 - **No new top-level docs.** README.md and this file are the only mandatory
   reading. Everything optional belongs under `docs/`. Do not create
   summary, plan, or migration markdown files unless explicitly asked.
-- **Do not write to `node_modules/` or `.husky/_/`.** Those are generated.
+- **Do not write to `node_modules/`.** Generated.
 
 ## Rules
 

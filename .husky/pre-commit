@@ -1,7 +1,0 @@
-#!/usr/bin/env sh
-
-# Auto-fix changed files and stage them
-pnpm exec lint-staged
-
-# Validate everything
-pnpm test

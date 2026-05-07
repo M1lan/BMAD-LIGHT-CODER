@@ -32,7 +32,7 @@ pnpm bmad:install
 
 After selecting official modules, the installer asks:
 
-```
+```text
 Would you like to browse community modules?
 ```
 
@@ -59,7 +59,7 @@ Custom modules can come from any Git repository or a local directory on your mac
 
 During installation, after the community module step, the installer asks:
 
-```
+```text
 Would you like to install from a custom source (Git URL or local path)?
 ```
 
@@ -142,7 +142,7 @@ If you delete the local source directory after installation, the installed modul
 
 After installation, custom modules appear in `_bmad/` alongside official modules:
 
-```
+```text
 your-project/
 ├── _bmad/
 │   ├── core/              # Built-in core module

@@ -12,12 +12,13 @@
     "bmad:uninstall": "node tools/installer/bmad-cli.js uninstall",
     "format:check": "prettier --check \"**/*.{js,cjs,mjs,json,yaml}\"",
     "format:fix": "prettier --write \"**/*.{js,cjs,mjs,json,yaml}\"",
-    "format:fix:staged": "prettier --write",
     "lint": "eslint . --ext .js,.cjs,.mjs,.yaml --max-warnings=0",
     "lint:fix": "eslint . --ext .js,.cjs,.mjs,.yaml --fix",
-    "lint:md": "markdownlint-cli2 \"**/*.md\"",
-    "prepare": "command -v husky >/dev/null 2>&1 && husky || exit 0",
-    "quality": "pnpm format:check && pnpm lint && pnpm lint:md && pnpm test:install && pnpm test:urls && pnpm validate:refs && pnpm validate:skills",
+    "lint:md": "rumdl check .",
+    "lint:md:fix": "rumdl check --fix .",
+    "lint:shell": "files=$(fd -e sh -e bash --exclude node_modules --exclude .git --hidden 2>/dev/null || true); if [ -n \"$files\" ]; then echo \"$files\" | xargs shellcheck; fi",
+    "prepare": "command -v pre-commit >/dev/null 2>&1 && pre-commit install || true",
+    "quality": "pnpm format:check && pnpm lint && pnpm lint:md && pnpm lint:shell && pnpm test:install && pnpm test:urls && pnpm validate:refs && pnpm validate:skills",
     "test": "pnpm test:refs && pnpm test:install && pnpm test:urls && pnpm test:channels && pnpm lint && pnpm lint:md && pnpm format:check",
     "test:channels": "node test/test-installer-channels.js",
     "test:install": "node test/test-installation-components.js",
@@ -25,22 +26,6 @@
     "test:urls": "node test/test-parse-source-urls.js",
     "validate:refs": "node tools/validate-file-refs.js --strict",
     "validate:skills": "node tools/validate-skills.js --strict"
-  },
-  "lint-staged": {
-    "*.{js,cjs,mjs}": [
-      "pnpm lint:fix",
-      "pnpm format:fix:staged"
-    ],
-    "*.yaml": [
-      "eslint --fix",
-      "pnpm format:fix:staged"
-    ],
-    "*.json": [
-      "pnpm format:fix:staged"
-    ],
-    "*.md": [
-      "markdownlint-cli2"
-    ]
   },
   "dependencies": {
     "@clack/core": "^1.0.0",
@@ -64,12 +49,8 @@
     "eslint-plugin-n": "^17.21.3",
     "eslint-plugin-unicorn": "^60.0.0",
     "eslint-plugin-yml": "^1.18.0",
-    "husky": "^9.1.7",
-    "lint-staged": "^16.1.1",
-    "markdownlint-cli2": "^0.19.1",
     "prettier": "^3.7.4",
-    "yaml-eslint-parser": "^1.2.3",
-    "yaml-lint": "^1.7.0"
+    "yaml-eslint-parser": "^1.2.3"
   },
   "packageManager": "pnpm@10.33.3",
   "engines": {

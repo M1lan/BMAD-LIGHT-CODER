@@ -12,33 +12,39 @@ When multiple AI agents implement different parts of a system, they can make con
 ### API Style Conflicts
 
 Without architecture:
+
 - Agent A uses REST with `/users/{id}`
 - Agent B uses GraphQL mutations
 - Result: Inconsistent API patterns, confused consumers
 
 With architecture:
+
 - ADR specifies: "Use GraphQL for all client-server communication"
 - All agents follow the same pattern
 
 ### Database Design Conflicts
 
 Without architecture:
+
 - Agent A uses snake_case column names
 - Agent B uses camelCase column names
 - Result: Inconsistent schema, confusing queries
 
 With architecture:
+
 - Standards document specifies naming conventions
 - All agents follow the same patterns
 
 ### State Management Conflicts
 
 Without architecture:
+
 - Agent A uses Redux for global state
 - Agent B uses React Context
 - Result: Multiple state management approaches, complexity
 
 With architecture:
+
 - ADR specifies state management approach
 - All agents implement consistently
 
@@ -47,6 +53,7 @@ With architecture:
 ### 1. Explicit Decisions via ADRs
 
 Every significant technology choice is documented with:
+
 - Context (why this decision matters)
 - Options considered (what alternatives exist)
 - Decision (what we chose)
@@ -56,12 +63,14 @@ Every significant technology choice is documented with:
 ### 2. FR/NFR-Specific Guidance
 
 Architecture maps each functional requirement to technical approach:
+
 - FR-001: User Management → GraphQL mutations
 - FR-002: Mobile App → Optimized queries
 
 ### 3. Standards and Conventions
 
 Explicit documentation of:
+
 - Directory structure
 - Naming conventions
 - Code organization
@@ -99,12 +108,14 @@ Common decisions that prevent conflicts:
 ## Anti-Patterns to Avoid
 
 :::caution[Common Mistakes]
+
 - **Implicit Decisions** — "We'll figure out the API style as we go" leads to inconsistency
 - **Over-Documentation** — Documenting every minor choice causes analysis paralysis
 - **Stale Architecture** — Documents written once and never updated cause agents to follow outdated patterns
 :::
 
 :::tip[Correct Approach]
+
 - Document decisions that cross epic boundaries
 - Focus on conflict-prone areas
 - Update architecture as you learn

@@ -52,6 +52,7 @@ persistent_facts = [
 **Why this works:** Two sentences reshape every dev workflow in the org, with no per-workflow duplication and no source changes. Every new engineer who pulls the repo inherits the conventions automatically.
 
 **Team file vs personal file:**
+
 - `bmad-agent-dev.toml`: committed to git; applies to the whole team
 - `bmad-agent-dev.user.toml`: gitignored; personal preferences layered on top
 
@@ -115,6 +116,7 @@ and ask the user to publish manually.
 **Why `on_complete` and not `activation_steps_append`:** `on_complete` runs exactly once, at the terminal stage, after the workflow's main output is written. That's the right moment to publish artifacts. `activation_steps_append` runs every activation, before the workflow does its work.
 
 **Tradeoffs:**
+
 - **Confluence publication is non-destructive** and always runs on completion
 - **Jira epic creation is visible to the whole team** and kicks off sprint-planning signals, so gate it on user confirmation
 - **Graceful fallback:** if MCP tools fail, hand off to the user rather than silently dropping the output
@@ -135,6 +137,7 @@ brief_template = "{project-root}/docs/enterprise/brief-template.md"
 **How it works:** The workflow's `customize.toml` ships with `brief_template = "resources/brief-template.md"` (bare path, resolves from skill root). Your override points at a file under `{project-root}`, so the agent reads your template in Stage 4 instead of the shipped one.
 
 **Template authoring tips:**
+
 - Keep templates in `{project-root}/docs/` or `{project-root}/_bmad/custom/templates/` so they version alongside the override file
 - Use the same structural conventions as the shipped template (section headings, frontmatter); the agent adapts to what's there
 - For multi-org repos, use `.user.toml` to let individual teams point at their own templates without touching the committed team file
@@ -204,6 +207,7 @@ Personal settings like `user_name`, `communication_language`, or `user_skill_lev
 BMad customizations load when a skill is activated. Many IDE tools also load a global instruction file at the **start of every session**, before any skill runs (`CLAUDE.md`, `AGENTS.md`, `.cursor/rules/`, `.github/copilot-instructions.md`, etc). For rules that should hold even outside BMad skills, restate the critical ones there too.
 
 **When to double up:**
+
 - A rule is important enough that a plain chat conversation (no skill active) should still follow it
 - You want belt-and-suspenders enforcement because training-data defaults might otherwise pull the model off-course
 - The rule is concise enough to repeat without bloating the session file

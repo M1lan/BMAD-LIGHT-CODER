@@ -23,7 +23,7 @@ For each test case in `test-cases.yaml`, invoke the adversarial review skill.
 
 ### Manual Test Invocation
 
-```
+```text
 Review this content using the adversarial review skill:
 
 <content>

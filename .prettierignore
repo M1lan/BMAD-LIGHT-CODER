@@ -10,3 +10,7 @@ _bmad*/
 
 # Lockfiles are generated
 pnpm-lock.yaml
+
+# Tool caches
+.rumdl_cache/
+node_modules/

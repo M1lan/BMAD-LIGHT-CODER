@@ -85,7 +85,7 @@ If no findings are generated (from either pass), the skill passes validation.
 - **Severity:** MEDIUM
 - **Applies to:** `SKILL.md`
 - **Rule:** The `description` must state both what the skill does AND when to use it. Max 1024 characters.
-- **Detection:** Check length. Look for trigger phrases like "Use when" or "Use if" — their absence suggests the description only says _what_ but not _when_.
+- **Detection:** Check length. Look for trigger phrases like "Use when" or "Use if" — their absence suggests the description only says *what* but not *when*.
 - **Fix:** Append a "Use when..." clause to the description.
 
 ### SKILL-07 — SKILL.md Must Have Body Content
@@ -300,7 +300,7 @@ If no findings are generated (from either pass), the skill passes validation.
 - **Applies to:** all files
 - **Rule:** When a skill references another skill by name, the surrounding instruction must use the word "invoke". The canonical form is `Invoke the \`skill-name\` skill`. Phrases like "Read fully and follow", "Execute", "Run", "Load", "Open", or "Follow" are invalid — they imply file-level operations on a document, not skill invocation. A skill is a unit that is invoked, not a file that is read.
 - **Detection:** Find all references to other skills by name (typically backtick-quoted skill names like \`bmad-foo\`). Check the surrounding instruction text (same sentence or directive) for file-oriented verbs: "read", "follow", "load", "execute", "run", "open". Flag any that do not use "invoke" (or a close synonym like "activate" or "launch").
-- **Fix:** Replace the instruction with `Invoke the \`skill-name\` skill`. Remove any "read fully and follow" or similar file-oriented phrasing. Do NOT add a `skill:` prefix to the name — use natural language.
+- **Fix:** Replace the instruction with `Invoke the \`skill-name\` skill`. Remove any "read fully and follow" or similar file-oriented phrasing. Do NOT add a`skill:` prefix to the name — use natural language.
 
 ---
 

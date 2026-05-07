@@ -11,6 +11,7 @@ This API provides endpoints for user authentication and session management.
 Authenticates a user and returns a token.
 
 **Request Body:**
+
 ```json
 {
   "email": "user@example.com",
@@ -19,6 +20,7 @@ Authenticates a user and returns a token.
 ```
 
 **Response:**
+
 ```json
 {
   "token": "eyJhbGciOiJIUzI1NiIs...",

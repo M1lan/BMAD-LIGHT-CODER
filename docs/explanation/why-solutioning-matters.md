@@ -5,7 +5,6 @@ sidebar:
   order: 3
 ---
 
-
 Phase 3 (Solutioning) translates **what** to build (from Planning) into **how** to build it (technical design). This phase prevents agent conflicts in multi-epic projects by documenting architectural decisions before implementation begins.
 
 ## The Problem Without Solutioning
@@ -44,6 +43,7 @@ By documenting technical decisions explicitly, all agents implement consistently
 **Make technical decisions explicit and documented** so all agents implement consistently.
 
 This prevents:
+
 - API style conflicts (REST vs GraphQL)
 - Database design inconsistencies
 - State management disagreements

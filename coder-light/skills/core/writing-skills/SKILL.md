@@ -47,27 +47,35 @@ description: Use when <specific triggering condition>
 # Skill Name
 
 ## Overview
+
 One paragraph. Core principle in one sentence.
 
 ## When to use
+
 Bullet list of triggers. When NOT to use.
 
 ## The rule / The process
+
 The instructions.
 
 ## Quick reference
+
 Table for scanning.
 
 ## Common rationalizations (only for discipline skills)
+
 Excuse → Reality table.
 
 ## Red flags — stop
+
 Phrases that mean you're about to violate.
 
 ## Pairs with
+
 Links to related skills.
 
 ## Bottom line
+
 One sentence. Forget everything else, remember this.
 ```
 

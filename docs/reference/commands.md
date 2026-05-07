@@ -106,19 +106,21 @@ See [Workflow Map](./workflow-map.md) for the complete workflow reference organi
 
 Tasks and tools are standalone operations that do not require an agent or workflow context.
 
-**BMad-Help: Your Intelligent Guide**
+#### BMad-Help: Your Intelligent Guide
 
 `bmad-help` is your primary interface for discovering what to do next. It inspects your project, understands natural language queries, and recommends the next required or optional step based on your installed modules.
 
 :::note[Example]
-```
+
+```text
 bmad-help
 bmad-help I have a SaaS idea and know all the features. Where do I start?
 bmad-help What are my options for UX design?
 ```
+
 :::
 
-**Other Core Tasks and Tools**
+#### Other Core Tasks and Tools
 
 The core module includes 11 built-in tools — reviews, compression, brainstorming, document management, and more. See [Core Tools](./core-tools.md) for the complete reference.
 

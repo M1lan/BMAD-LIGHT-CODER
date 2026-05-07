@@ -11,7 +11,7 @@ Use BMad's built-in help, source docs, or the community to get answers — from 
 
 The fastest way to get answers. The `bmad-help` skill is available directly in your AI session and handles over 80% of questions — it inspects your project, sees what you've completed, and tells you what to do next.
 
-```
+```text
 bmad-help I have a SaaS idea and know all the features. Where do I start?
 bmad-help What are my options for UX design?
 bmad-help I'm stuck on the PRD workflow
@@ -54,27 +54,27 @@ If neither BMad-Help nor the source answered your question, you now have a much 
 **Discord:** [discord.gg/gk8jAdXWmj](https://discord.gg/gk8jAdXWmj)
 
 **GitHub Issues:** [github.com/bmad-code-org/BMAD-METHOD/issues](https://github.com/bmad-code-org/BMAD-METHOD/issues)
-_You!_
-_Stuck_
-_in the queue—_
-_waiting_
-_for who?_
+*You!*
+*Stuck*
+*in the queue—*
+*waiting*
+*for who?*
 
-_The source_
-_is there,_
-_plain to see!_
+*The source*
+*is there,*
+*plain to see!*
 
-_Point_
-_your machine._
-_Set it free._
+*Point*
+*your machine.*
+*Set it free.*
 
-_It reads._
-_It speaks._
-_Ask away—_
+*It reads.*
+*It speaks.*
+*Ask away—*
 
-_Why wait_
-_for tomorrow_
-_when you have_
-_today?_
+*Why wait*
+*for tomorrow*
+*when you have*
+*today?*
 
-_—Claude_
+— Claude

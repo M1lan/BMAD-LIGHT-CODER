@@ -69,7 +69,7 @@ For complex projects, consider using the `bmad-document-project` workflow. It of
 - Shows options based on your installed modules
 - Understands natural language queries
 
-```
+```text
 bmad-help I have an existing Rails app, where should I start?
 bmad-help What's the difference between quick-flow and full method?
 bmad-help Show me what workflows are available
