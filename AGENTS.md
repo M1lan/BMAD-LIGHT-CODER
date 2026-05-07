@@ -33,8 +33,12 @@ hallucinations, etc.
   `.pre-commit-config.yaml`. There is no `.husky/` directory.
 - **Markdown lints with rumdl, not markdownlint-cli2.** Config is
   `.rumdl.toml`. `markdownlint-cli2` is no longer a devDep.
-- **Justfile is the canonical task runner.** `just --list` for recipes,
-  `just fzf` for the interactive picker. `just verify` == `pnpm quality`.
+- **Justfile is the canonical task runner.** `just --list` shows
+  auto-grouped recipes (via `[group(...)]` attrs). `just menu` is the
+  interactive picker (gum filter over every recipe). `just verify` ==
+  `pnpm quality`. Interactive recipes (`menu`, `pick`, `search`,
+  `branch`, `which`) need `gum` and `sk` (skim) — `brew install gum sk`.
+  No `fzf` recipe; `sk` replaced it project-wide.
 - **Skill files are validated.** Anything claiming to be a skill must satisfy
   the rules in `tools/skill-validator.md`. `pnpm validate:skills`
   enforces the deterministic subset.
