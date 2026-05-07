@@ -76,7 +76,16 @@ Then point your AI assistant at `.agent/coder-light/`. See [docs/install.md](doc
 
 ## Languages covered
 
-Kotlin, Java, TypeScript, Python, Rust, Bash 5.3+. One SKILL.md per language with toolchain, lint, test, verify recipes, and pitfalls.
+| Language | Targets |
+|---|---|
+| Kotlin | 2.0+, JVM 21/25 LTS, Gradle Kotlin DSL, ktlint, detekt, JUnit 5 |
+| Java | 25 LTS (or 21 LTS), records, sealed types, virtual threads, JUnit 5, Mockito 5 |
+| TypeScript | strict mode, pnpm, Vitest, ESLint 9 flat config, Node 24 LTS |
+| Python | 3.13+, `uv`, `ruff`, `pytest`, `pyright` |
+| Rust | stable, edition 2024, `cargo nextest`, clippy `-D warnings`, `anyhow` / `thiserror` |
+| Bash | 5.3+, strict mode, GNU/Homebrew tools only, shellcheck + shfmt + bats |
+
+One `SKILL.md` per language. Each has toolchain, lint, test, verify recipe, pitfalls.
 
 ## Provenance
 

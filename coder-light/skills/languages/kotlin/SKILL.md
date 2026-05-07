@@ -30,7 +30,7 @@ src/main/kotlin/<pkg>/...
 src/test/kotlin/<pkg>/...
 ```
 
-JVM target: 21 (LTS). `kotlinOptions { jvmTarget = "21" }` or the modern `compilerOptions { jvmTarget = JvmTarget.JVM_21 }`.
+JVM target: 21 LTS (or 25 LTS where the project has moved to it). `kotlinOptions { jvmTarget = "21" }` (deprecated) or the modern `compilerOptions { jvmTarget = JvmTarget.JVM_21 }`.
 
 ## Style and lint
 

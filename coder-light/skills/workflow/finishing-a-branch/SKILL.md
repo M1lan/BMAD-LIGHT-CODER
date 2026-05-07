@@ -89,7 +89,9 @@ Then go to Step 5 (cleanup worktree).
 First, generate a runtime MR description from the template:
 
 ```bash
-cp coder-light/templates/mr-description.md ./.mr.md
+# Adjust the source path to wherever coder-light is installed
+# (commonly .agent/coder-light/ — see docs/install.md).
+cp .agent/coder-light/templates/mr-description.md ./.mr.md
 # edit ./.mr.md to fill in summary, why, test evidence -- it is gitignored
 printf '\n.mr.md\n' >> .gitignore   # one-time, if not already ignored
 ```

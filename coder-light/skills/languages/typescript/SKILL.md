@@ -7,13 +7,13 @@ description: Use when writing or editing TypeScript at ista-se — strict mode, 
 
 ## Overview
 
-TypeScript with `strict: true` and friends. pnpm (not npm) for the package manager. Vitest for tests. ESLint flat config. Node 22+ (LTS) or Bun where appropriate.
+TypeScript with `strict: true` and friends. pnpm (not npm) for the package manager. Vitest for tests. ESLint flat config. Node 24 LTS (or 22 LTS where pinned).
 
 ## Toolchain
 
 | Tool | Where | Version target |
 |---|---|---|
-| `node` | `/opt/homebrew/bin/node` | 22.x LTS |
+| `node` | `/opt/homebrew/bin/node` | 24 LTS (or 22 LTS where pinned) |
 | `pnpm` | `/opt/homebrew/bin/pnpm` | 9+ |
 | `tsc` | local devDep | 5.4+ |
 | `vitest` | local devDep | 2+ |
@@ -125,7 +125,7 @@ tests/                    # or co-located *.test.ts
 
 - `../../core/test-driven-development/SKILL.md` — Vitest is the runner.
 - `../../core/verification-before-completion/SKILL.md` — `pnpm lint && pnpm typecheck && pnpm test` is the verification command.
-- `../../platform/gitlab-glab/SKILL.md` — pipeline runs the same command on a Node 22 image.
+- `../../platform/gitlab-glab/SKILL.md` — pipeline runs the same command on a Node 24 image (or 22 LTS where pinned).
 
 ## Bottom line
 

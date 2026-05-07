@@ -32,7 +32,7 @@ If the spec covers multiple independent subsystems, split it into one plan per s
 
 ## Use the template
 
-Start from `coder-light/templates/plan.md`. Don't reinvent the structure.
+Start from the plan template at `<coder-light>/templates/plan.md` (e.g. `.agent/coder-light/templates/plan.md` per `docs/install.md`). Don't reinvent the structure.
 
 ## Header (required)
 

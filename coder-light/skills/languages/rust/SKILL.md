@@ -7,7 +7,7 @@ description: Use when writing or editing Rust at ista-se — cargo, clippy, rust
 
 ## Overview
 
-Stable Rust, edition 2021. cargo, clippy, rustfmt, cargo-nextest. `anyhow` for application errors, `thiserror` for library errors. `tokio` for async. `criterion` for benchmarks.
+Stable Rust, edition 2024. cargo, clippy, rustfmt, cargo-nextest. `anyhow` for application errors, `thiserror` for library errors. `tokio` for async. `criterion` for benchmarks.
 
 ## Toolchain
 
@@ -23,9 +23,11 @@ Pin the toolchain in the repo:
 ```toml
 # rust-toolchain.toml
 [toolchain]
-channel = "1.81"
+channel = "1.85"
 components = ["rustfmt", "clippy"]
 ```
+
+Edition 2024 went stable in Rust 1.85 (Feb 2025). Use it on new crates: `edition = "2024"` in `Cargo.toml`.
 
 ## Project layout
 

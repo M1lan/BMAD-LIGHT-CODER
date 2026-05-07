@@ -66,7 +66,9 @@ glab repo view --web   # opens the current repo's GitLab page
 Generate a runtime MR description from the template (gitignored, kept out of the tree):
 
 ```bash
-cp coder-light/templates/mr-description.md ./.mr.md
+# Adjust the source path to wherever coder-light is installed
+# (commonly .agent/coder-light/ — see coder-light/docs/install.md).
+cp .agent/coder-light/templates/mr-description.md ./.mr.md
 # fill in summary, why, test evidence
 rg -q '^\.mr\.md$' .gitignore || printf '\n.mr.md\n' >> .gitignore
 ```

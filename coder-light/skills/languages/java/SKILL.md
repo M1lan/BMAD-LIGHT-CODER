@@ -1,19 +1,19 @@
 ---
 name: java
-description: Use when writing or editing modern Java (21+) code at ista-se — covers Maven/Gradle, JUnit 5, Mockito, SpotBugs, and modern language features
+description: Use when writing or editing modern Java (21+) code at ista-se — covers Maven/Gradle, JUnit 5, Mockito, SpotBugs, and modern language features (records, sealed types, pattern matching, virtual threads)
 ---
 
 # Java
 
 ## Overview
 
-Modern Java 21+ (LTS). Records, pattern matching, sealed types, virtual threads. Maven or Gradle (project's choice — don't migrate without a reason). JUnit 5. Mockito for mocks. SpotBugs + Error Prone for static analysis.
+Modern Java on an LTS release. As of 2026, Java 25 (Sept 2025) is the current LTS; Java 21 (Sept 2023) is the previous LTS. Records, pattern matching, sealed types, virtual threads, scoped values. Maven or Gradle (the project's choice — don't migrate without a reason). JUnit 5. Mockito for mocks. SpotBugs + Error Prone for static analysis.
 
 ## Toolchain
 
 | Tool | Where | Version target |
 |---|---|---|
-| `java` | `/opt/homebrew/bin/java` (Temurin via Homebrew, or SDKMAN) | 21 LTS |
+| `java` | `/opt/homebrew/bin/java` (Temurin via Homebrew, or SDKMAN) | 25 LTS (or 21 LTS where pinned) |
 | `mvn` | `/opt/homebrew/bin/mvn` | 3.9+ |
 | `gradle` | `./gradlew` (wrapper) | 8.7+ |
 
@@ -22,16 +22,18 @@ Pin the toolchain in the build:
 ```kotlin
 // Gradle (Kotlin DSL)
 java {
-    toolchain { languageVersion = JavaLanguageVersion.of(21) }
+    toolchain { languageVersion = JavaLanguageVersion.of(25) }
 }
 ```
 
 ```xml
 <!-- Maven -->
 <properties>
-  <maven.compiler.release>21</maven.compiler.release>
+  <maven.compiler.release>25</maven.compiler.release>
 </properties>
 ```
+
+Drop to `21` if the project hasn't moved off the previous LTS yet.
 
 ## Style and lint
 
@@ -78,11 +80,13 @@ mvn -B verify
 |---|---|
 | `record` | Immutable DTOs / value objects. |
 | `sealed interface` + `permits` | Closed hierarchy + exhaustive `switch`. |
-| Pattern-matching `switch` | Replaces `instanceof` chains. |
+| Pattern-matching `switch` (with `case Foo f when ...`) | Replaces `instanceof` chains. |
 | `var` (locals) | When the type is obvious from the right-hand side. |
 | Text blocks (`"""`) | Multi-line strings without escaping. |
 | `Optional<T>` (return types only) | Never as a field, never as a method parameter. |
 | Virtual threads (`Thread.ofVirtual()`, `Executors.newVirtualThreadPerTaskExecutor()`) | I/O-bound concurrency in Java 21+. |
+| Scoped values (`ScopedValue.where(...)`) | Replaces `ThreadLocal` for inheritable, immutable per-task context (Java 25+). |
+| Stream gatherers (`Stream.gather`) | Custom intermediate operations beyond `map`/`filter`/`reduce` (Java 24+). |
 
 ## Common pitfalls
 
@@ -118,4 +122,4 @@ Same structure for Gradle, with `build.gradle.kts` instead of `pom.xml`.
 
 ## Bottom line
 
-Java 21, records, sealed types, virtual threads, Spotless + SpotBugs, JUnit 5 + Mockito 5. Verify with `mvn verify` or `./gradlew check`.
+Java 25 LTS (or 21 LTS where pinned), records, sealed types, virtual threads, scoped values, Spotless + SpotBugs, JUnit 5 + Mockito 5. Verify with `mvn verify` or `./gradlew check`.

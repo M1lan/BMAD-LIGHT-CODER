@@ -7,7 +7,7 @@ description: Use when writing or editing Python at ista-se — uv for envs and t
 
 ## Overview
 
-Modern Python 3.12+. `uv` for environment and global tool management. `ruff` for linting and formatting (replaces `isort`, `flake8`, `black`, `pyupgrade`). `pytest` for tests. Type hints everywhere; checked by `pyright` (or `mypy`).
+Modern Python 3.13+. `uv` for environment and global tool management. `ruff` for linting and formatting (replaces `isort`, `flake8`, `black`, `pyupgrade`). `pytest` for tests. Type hints everywhere; checked by `pyright` (or `mypy`).
 
 ## Toolchain policy (non-negotiable)
 
@@ -24,7 +24,7 @@ Modern Python 3.12+. `uv` for environment and global tool management. `ruff` for
 | Tool | Where | Version target |
 |---|---|---|
 | `uv` | `/opt/homebrew/bin/uv` or `~/.local/bin/uv` | 0.4+ |
-| `python` | inside the project venv | 3.12+ |
+| `python` | inside the project venv | 3.13+ |
 | `ruff` | local devDep or `uv tool install ruff` | latest |
 | `pytest` | local devDep | 8+ |
 | `pyright` | `uv tool install pyright` | latest |
@@ -44,12 +44,12 @@ tests/
 ```toml
 [project]
 name = "ista-thing"
-requires-python = ">=3.12"
+requires-python = ">=3.13"
 dependencies = ["httpx>=0.27"]
 
 [tool.ruff]
 line-length = 100
-target-version = "py312"
+target-version = "py313"
 
 [tool.ruff.lint]
 select = ["E", "F", "I", "B", "UP", "SIM", "PT", "RUF"]
@@ -107,6 +107,8 @@ ruff check . && ruff format --check . && pyright && pytest -q
 | `X \| None` instead of `Optional[X]` (3.10+) | Cleaner. |
 | `list[int]`, `dict[str, X]` (PEP 585) | No `typing.List`. |
 | `TypedDict`, `Protocol`, `Literal`, `Self` | Use them. |
+| `type Alias = ...` statement (PEP 695, 3.12+) | Replaces `TypeAlias`. |
+| `class Foo[T]: ...` generic syntax (PEP 695, 3.12+) | Replaces `TypeVar` boilerplate. |
 | `assert isinstance(x, Foo)` for narrowing | Plays well with type checkers. |
 
 ## Common pitfalls

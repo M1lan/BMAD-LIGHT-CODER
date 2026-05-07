@@ -83,11 +83,13 @@ One sentence. Forget everything else, remember this.
 
 Imperative. Terse. Declarative.
 
-Forbidden everywhere:
+The canonical forbidden-phrase list lives in `coder-light/AGENTS.md` (Communication section). It applies to every file in the tree, including SKILL.md bodies. Re-read it before writing a new skill.
+
+Quick reminder of the worst offenders:
 
 - "your human partner" (Superpowers idiom; here we say "you")
-- "delve", "leverage" (verb), "robust", "comprehensive", "seamlessly"
-- "as an AI ..."
+- "delve", "leverage" (verb), "robust", "comprehensive", "seamlessly", "unleash", "empower"
+- "as an AI ...", "I'll help you ...", "great question", "absolutely"
 - Marketing hype, fake enthusiasm, em-dash spam
 - Emojis (unless literal terminal output)
 
