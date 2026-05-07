@@ -90,84 +90,22 @@ export default defineConfig({
       // Custom CSS
       customCss: ['./src/styles/custom.css'],
 
-      // Sidebar configuration (Diataxis structure)
+      // Sidebar configuration (Diataxis structure). English-only.
       sidebar: [
-        {
-          label: 'Welcome',
-          translations: { 'vi-VN': 'Chào mừng', 'zh-CN': '欢迎', 'fr-FR': 'Bienvenue', 'cs-CZ': 'Vítejte' },
-          slug: 'index',
-        },
-        {
-          label: 'Roadmap',
-          translations: { 'vi-VN': 'Lộ trình', 'zh-CN': '路线图', 'fr-FR': 'Feuille de route', 'cs-CZ': 'Plán rozvoje' },
-          slug: 'roadmap',
-        },
-        {
-          label: 'Tutorials',
-          translations: { 'vi-VN': 'Hướng dẫn nhập môn', 'zh-CN': '教程', 'fr-FR': 'Tutoriels', 'cs-CZ': 'Tutoriály' },
-          collapsed: false,
-          autogenerate: { directory: 'tutorials' },
-        },
-        {
-          label: 'How-To Guides',
-          translations: { 'vi-VN': 'Hướng dẫn tác vụ', 'zh-CN': '操作指南', 'fr-FR': 'Guides pratiques', 'cs-CZ': 'Praktické návody' },
-          collapsed: true,
-          autogenerate: { directory: 'how-to' },
-        },
-        {
-          label: 'Explanation',
-          translations: { 'vi-VN': 'Giải thích', 'zh-CN': '概念说明', 'fr-FR': 'Explications', 'cs-CZ': 'Vysvětlení' },
-          collapsed: true,
-          autogenerate: { directory: 'explanation' },
-        },
-        {
-          label: 'Reference',
-          translations: { 'vi-VN': 'Tham chiếu', 'zh-CN': '参考', 'fr-FR': 'Référence', 'cs-CZ': 'Reference' },
-          collapsed: true,
-          autogenerate: { directory: 'reference' },
-        },
-        // TEA docs moved to standalone module site; keep BMM sidebar focused.
+        { label: 'Welcome', slug: 'index' },
+        { label: 'Tutorials', collapsed: false, autogenerate: { directory: 'tutorials' } },
+        { label: 'How-To Guides', collapsed: true, autogenerate: { directory: 'how-to' } },
+        { label: 'Explanation', collapsed: true, autogenerate: { directory: 'explanation' } },
+        { label: 'Reference', collapsed: true, autogenerate: { directory: 'reference' } },
         {
           label: 'BMad Ecosystem',
-          translations: { 'vi-VN': 'Hệ sinh thái BMad', 'zh-CN': 'BMad 生态系统', 'fr-FR': 'Écosystème BMad', 'cs-CZ': 'Ekosystém BMad' },
           collapsed: false,
           items: [
-            {
-              label: 'BMad Builder',
-              translations: { 'vi-VN': 'BMad Builder', 'zh-CN': 'BMad 构建器', 'fr-FR': 'BMad Builder', 'cs-CZ': 'BMad Builder' },
-              link: 'https://bmad-builder-docs.bmad-method.org/',
-              attrs: { target: '_blank' },
-            },
-            {
-              label: 'Creative Intelligence Suite',
-              translations: {
-                'vi-VN': 'Bộ công cụ Trí tuệ Sáng tạo',
-                'zh-CN': '创意智能套件',
-                'fr-FR': "Suite d'Intelligence Créative",
-                'cs-CZ': 'Sada kreativní inteligence',
-              },
-              link: 'https://cis-docs.bmad-method.org/',
-              attrs: { target: '_blank' },
-            },
-            {
-              label: 'Game Dev Studio',
-              translations: {
-                'vi-VN': 'Xưởng phát triển Game',
-                'zh-CN': '游戏开发工作室',
-                'fr-FR': 'Studio de Développement de Jeux',
-                'cs-CZ': 'Herní vývojové studio',
-              },
-              link: 'https://game-dev-studio-docs.bmad-method.org/',
-              attrs: { target: '_blank' },
-            },
+            { label: 'BMad Builder', link: 'https://bmad-builder-docs.bmad-method.org/', attrs: { target: '_blank' } },
+            { label: 'Creative Intelligence Suite', link: 'https://cis-docs.bmad-method.org/', attrs: { target: '_blank' } },
+            { label: 'Game Dev Studio', link: 'https://game-dev-studio-docs.bmad-method.org/', attrs: { target: '_blank' } },
             {
               label: 'Test Architect (TEA)',
-              translations: {
-                'vi-VN': 'Kiến trúc sư Kiểm thử (TEA)',
-                'zh-CN': '测试架构师 (TEA)',
-                'fr-FR': 'Architecte de Tests (TEA)',
-                'cs-CZ': 'Testovací architekt (TEA)',
-              },
               link: 'https://bmad-code-org.github.io/bmad-method-test-architecture-enterprise/',
               attrs: { target: '_blank' },
             },
