@@ -1,0 +1,396 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>BMAD Method — Diagram Gallery</title>
+<style>
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+
+  body {
+    background: #08080f;
+    color: #e8eaf0;
+    font-family: system-ui, 'Segoe UI', sans-serif;
+    min-height: 100vh;
+    padding: 48px 32px 80px;
+  }
+
+  /* Dot grid background */
+  body::before {
+    content: '';
+    position: fixed;
+    inset: 0;
+    background-image: radial-gradient(circle, #ffffff08 1px, transparent 1px);
+    background-size: 24px 24px;
+    pointer-events: none;
+    z-index: 0;
+  }
+
+  .content { position: relative; z-index: 1; max-width: 1320px; margin: 0 auto; }
+
+  /* Header */
+  .header { margin-bottom: 56px; }
+  .header-eyebrow {
+    font-size: 11px;
+    font-weight: 700;
+    letter-spacing: 0.12em;
+    color: #00d4ff;
+    text-transform: uppercase;
+    margin-bottom: 12px;
+  }
+  .header h1 {
+    font-size: 40px;
+    font-weight: 700;
+    color: #e8eaf0;
+    line-height: 1.1;
+    margin-bottom: 16px;
+  }
+  .header h1 span { color: #00d4ff; }
+  .header p {
+    font-size: 15px;
+    color: #6b7280;
+    max-width: 600px;
+    line-height: 1.6;
+  }
+
+  /* Stats bar */
+  .stats {
+    display: flex;
+    gap: 32px;
+    margin-bottom: 48px;
+    padding: 20px 28px;
+    background: #ffffff06;
+    border: 1px solid #ffffff0f;
+    border-radius: 12px;
+    width: fit-content;
+  }
+  .stat-item { display: flex; flex-direction: column; gap: 4px; }
+  .stat-value { font-size: 24px; font-weight: 700; color: #00d4ff; }
+  .stat-label { font-size: 11px; color: #6b7280; letter-spacing: 0.06em; text-transform: uppercase; }
+
+  /* Section headers */
+  .section-label {
+    font-size: 10px;
+    font-weight: 700;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+    color: #6b7280;
+    margin-bottom: 20px;
+    padding-bottom: 10px;
+    border-bottom: 1px solid #ffffff0a;
+  }
+
+  /* Grid */
+  .grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(360px, 1fr));
+    gap: 20px;
+    margin-bottom: 48px;
+  }
+
+  /* Card */
+  .card {
+    display: block;
+    text-decoration: none;
+    background: #0e0e1a;
+    border: 1px solid #ffffff10;
+    border-radius: 14px;
+    overflow: hidden;
+    transition: border-color 0.2s, transform 0.15s, box-shadow 0.2s;
+    position: relative;
+  }
+  .card:hover {
+    border-color: #00d4ff50;
+    transform: translateY(-3px);
+    box-shadow: 0 12px 40px #00d4ff18, 0 0 0 1px #00d4ff30;
+  }
+  .card:hover .card-arrow { opacity: 1; transform: translateX(0); }
+
+  /* Card accent bar */
+  .card::before {
+    content: '';
+    display: block;
+    height: 3px;
+    width: 100%;
+    background: var(--accent, #00d4ff);
+    opacity: 0.7;
+  }
+
+  .card-body { padding: 24px 24px 20px; }
+
+  .card-number {
+    font-size: 10px;
+    font-weight: 700;
+    letter-spacing: 0.1em;
+    color: var(--accent, #00d4ff);
+    margin-bottom: 8px;
+    text-transform: uppercase;
+  }
+
+  .card-title {
+    font-size: 16px;
+    font-weight: 700;
+    color: #e8eaf0;
+    margin-bottom: 6px;
+    line-height: 1.3;
+  }
+
+  .card-type {
+    font-size: 11px;
+    color: #6b7280;
+    margin-bottom: 14px;
+    font-style: italic;
+  }
+
+  .card-desc {
+    font-size: 12px;
+    color: #9b9eb0;
+    line-height: 1.6;
+    margin-bottom: 18px;
+  }
+
+  .card-footer {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding-top: 14px;
+    border-top: 1px solid #ffffff08;
+  }
+
+  .card-tag {
+    font-size: 10px;
+    font-weight: 600;
+    letter-spacing: 0.06em;
+    text-transform: uppercase;
+    color: var(--accent, #00d4ff);
+    background: color-mix(in srgb, var(--accent, #00d4ff) 12%, transparent);
+    border: 1px solid color-mix(in srgb, var(--accent, #00d4ff) 30%, transparent);
+    padding: 3px 10px;
+    border-radius: 20px;
+  }
+
+  .card-arrow {
+    font-size: 16px;
+    color: var(--accent, #00d4ff);
+    opacity: 0;
+    transform: translateX(-6px);
+    transition: opacity 0.2s, transform 0.2s;
+  }
+
+  /* Footer */
+  .page-footer {
+    margin-top: 64px;
+    padding-top: 24px;
+    border-top: 1px solid #ffffff08;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+  }
+  .page-footer-left { font-size: 12px; color: #6b7280; }
+  .page-footer-right { font-size: 11px; color: #ffffff14; letter-spacing: 0.08em; }
+</style>
+</head>
+<body>
+<div class="content">
+
+  <!-- Header -->
+  <header class="header">
+    <div class="header-eyebrow">Diagram Gallery</div>
+    <h1>BMAD <span>Method</span><br>Architecture Diagrams</h1>
+    <p>12 futuristic software engineering diagrams covering the full BMAD Method system — from C4 context maps to UML class hierarchies and mind maps.</p>
+  </header>
+
+  <!-- Stats -->
+  <div class="stats">
+    <div class="stat-item">
+      <span class="stat-value">12</span>
+      <span class="stat-label">Diagrams</span>
+    </div>
+    <div class="stat-item">
+      <span class="stat-value">7</span>
+      <span class="stat-label">Diagram Types</span>
+    </div>
+    <div class="stat-item">
+      <span class="stat-value">6</span>
+      <span class="stat-label">AI Agents</span>
+    </div>
+    <div class="stat-item">
+      <span class="stat-value">4</span>
+      <span class="stat-label">Phases</span>
+    </div>
+  </div>
+
+  <!-- Grid -->
+  <div class="section-label">All Diagrams</div>
+  <div class="grid">
+
+    <a href="01-system-context.html" class="card" style="--accent: #00d4ff">
+      <div class="card-body">
+        <div class="card-number">01</div>
+        <div class="card-title">System Context</div>
+        <div class="card-type">C4 Level 1 — Context Diagram</div>
+        <div class="card-desc">How BMAD fits into the broader ecosystem: users, AI providers, IDEs, GitHub, and npm registry. Clean box-and-line overview of external relationships.</div>
+        <div class="card-footer">
+          <span class="card-tag">C4 Model</span>
+          <span class="card-arrow">→</span>
+        </div>
+      </div>
+    </a>
+
+    <a href="02-module-containers.html" class="card" style="--accent: #00d4ff">
+      <div class="card-body">
+        <div class="card-number">02</div>
+        <div class="card-title">Module Containers</div>
+        <div class="card-type">C4 Level 2 — Container Diagram</div>
+        <div class="card-desc">Internal BMAD containers: Installer CLI, Core Module, BMM Module, Extension Modules, config store, artifact store, and Agent Runtime with data flows.</div>
+        <div class="card-footer">
+          <span class="card-tag">C4 Model</span>
+          <span class="card-arrow">→</span>
+        </div>
+      </div>
+    </a>
+
+    <a href="03-lifecycle-flowchart.html" class="card" style="--accent: #9b59ff">
+      <div class="card-body">
+        <div class="card-number">03</div>
+        <div class="card-title">Master Lifecycle</div>
+        <div class="card-type">Flowchart — Decision Tree</div>
+        <div class="card-desc">Full decision flow from "New Project Idea" through all 4 phases to "Deployed Feature". Includes Quick Dev shortcut path and Correct Course escape hatch.</div>
+        <div class="card-footer">
+          <span class="card-tag">Flowchart</span>
+          <span class="card-arrow">→</span>
+        </div>
+      </div>
+    </a>
+
+    <a href="04-agent-use-case.html" class="card" style="--accent: #9b59ff">
+      <div class="card-body">
+        <div class="card-number">04</div>
+        <div class="card-title">Agent Use Cases</div>
+        <div class="card-type">UML Use Case Diagram</div>
+        <div class="card-desc">Six agent actors (Mary, Paige, John, Sally, Winston, Amelia) mapped to their use cases across all phases, plus the Developer actor on the right.</div>
+        <div class="card-footer">
+          <span class="card-tag">UML</span>
+          <span class="card-arrow">→</span>
+        </div>
+      </div>
+    </a>
+
+    <a href="05-artifact-erd.html" class="card" style="--accent: #ff9500">
+      <div class="card-body">
+        <div class="card-number">05</div>
+        <div class="card-title">Artifact ERD</div>
+        <div class="card-type">Entity Relationship Diagram</div>
+        <div class="card-desc">Ten artifact entities from ProductBrief to TestSuite with crow's-foot notation showing 1:1 and 1:N relationships, primary/foreign keys, and data types.</div>
+        <div class="card-footer">
+          <span class="card-tag">ERD</span>
+          <span class="card-arrow">→</span>
+        </div>
+      </div>
+    </a>
+
+    <a href="06-sequence-lifecycle.html" class="card" style="--accent: #00d4ff">
+      <div class="card-body">
+        <div class="card-number">06</div>
+        <div class="card-title">Sequence — Full Lifecycle</div>
+        <div class="card-type">UML Sequence Diagram</div>
+        <div class="card-desc">28-message sequence across User, Mary, John, Sally, Winston, Amelia, and GitHub lifelines. Activation boxes, return arrows, and phase separators.</div>
+        <div class="card-footer">
+          <span class="card-tag">UML</span>
+          <span class="card-arrow">→</span>
+        </div>
+      </div>
+    </a>
+
+    <a href="07-state-machine.html" class="card" style="--accent: #9b59ff">
+      <div class="card-body">
+        <div class="card-number">07</div>
+        <div class="card-title">State Machine</div>
+        <div class="card-type">UML State Machine Diagram</div>
+        <div class="card-desc">Artifact lifecycle states from Ideation → Brief → Planning → Design → Architecture → Ready → InSprint → InDevelopment → InReview → Tested → Done.</div>
+        <div class="card-footer">
+          <span class="card-tag">UML</span>
+          <span class="card-arrow">→</span>
+        </div>
+      </div>
+    </a>
+
+    <a href="08-swimlane.html" class="card" style="--accent: #ff9500">
+      <div class="card-body">
+        <div class="card-number">08</div>
+        <div class="card-title">Swimlane Activity</div>
+        <div class="card-type">Swimlane Activity Diagram</div>
+        <div class="card-desc">Horizontal lanes for each actor showing activity flow and hand-off arrows across the full project lifecycle from idea to merge and deploy.</div>
+        <div class="card-footer">
+          <span class="card-tag">Activity</span>
+          <span class="card-arrow">→</span>
+        </div>
+      </div>
+    </a>
+
+    <a href="09-skill-dependency.html" class="card" style="--accent: #00d4ff">
+      <div class="card-body">
+        <div class="card-number">09</div>
+        <div class="card-title">Skill Dependency Graph</div>
+        <div class="card-type">Directed Dependency Graph</div>
+        <div class="card-desc">All BMAD skills as nodes with "preceded-by" directed edges. Critical path highlighted in cyan, optional skills in violet, organized in phase columns.</div>
+        <div class="card-footer">
+          <span class="card-tag">Graph</span>
+          <span class="card-arrow">→</span>
+        </div>
+      </div>
+    </a>
+
+    <a href="10-component-diagram.html" class="card" style="--accent: #9b59ff">
+      <div class="card-body">
+        <div class="card-number">10</div>
+        <div class="card-title">Component Diagram</div>
+        <div class="card-type">UML Component Diagram</div>
+        <div class="card-desc">SkillEngine, WorkflowOrchestrator, AgentPersona, MemlogSystem, InstallerCLI, ConfigRegistry, ArtifactStore, ReviewerGate with lollipop interfaces.</div>
+        <div class="card-footer">
+          <span class="card-tag">UML</span>
+          <span class="card-arrow">→</span>
+        </div>
+      </div>
+    </a>
+
+    <a href="11-class-diagram.html" class="card" style="--accent: #ff9500">
+      <div class="card-body">
+        <div class="card-number">11</div>
+        <div class="card-title">Class Diagram</div>
+        <div class="card-type">UML Class Diagram</div>
+        <div class="card-desc">BMADModule ← CoreModule / BMMModule; Skill ← PhaseSkill ← {AnalysisSkill, PlanningSkill, SolutioningSkill, ImplementationSkill}; Agent; Artifact.</div>
+        <div class="card-footer">
+          <span class="card-tag">UML</span>
+          <span class="card-arrow">→</span>
+        </div>
+      </div>
+    </a>
+
+    <a href="12-mind-map.html" class="card" style="--accent: #00d4ff">
+      <div class="card-body">
+        <div class="card-number">12</div>
+        <div class="card-title">Mind Map</div>
+        <div class="card-type">Radial Mind Map</div>
+        <div class="card-desc">Central BMAD METHOD node with radial branches: Philosophy, Phases, Agents, Artifacts, Configuration, Skills, and Installer. Organic yet precise layout.</div>
+        <div class="card-footer">
+          <span class="card-tag">Mind Map</span>
+          <span class="card-arrow">→</span>
+        </div>
+      </div>
+    </a>
+
+  </div>
+
+  <!-- Footer -->
+  <footer class="page-footer">
+    <div class="page-footer-left">
+      BMAD Method — AI-native agile framework for structured software delivery<br>
+      All diagrams are self-contained HTML + SVG — no external dependencies
+    </div>
+    <div class="page-footer-right">BMAD METHOD</div>
+  </footer>
+
+</div>
+</body>
+</html>

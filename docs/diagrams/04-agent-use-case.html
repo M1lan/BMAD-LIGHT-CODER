@@ -1,0 +1,262 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>BMAD Method — UML Use Case Diagram</title>
+<style>
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+  body {
+    background: #08080f;
+    display: flex;
+    justify-content: center;
+    align-items: flex-start;
+    min-height: 100vh;
+    font-family: system-ui, 'Segoe UI', sans-serif;
+    padding: 32px 16px;
+  }
+  svg { display: block; }
+</style>
+</head>
+<body>
+<svg width="1400" height="1000" viewBox="0 0 1400 1000" xmlns="http://www.w3.org/2000/svg">
+  <defs>
+    <pattern id="dotgrid" x="0" y="0" width="24" height="24" patternUnits="userSpaceOnUse">
+      <circle cx="1" cy="1" r="1" fill="#ffffff08"/>
+    </pattern>
+    <marker id="arrow-cyan" markerWidth="10" markerHeight="7" refX="9" refY="3.5" orient="auto">
+      <polygon points="0 0, 10 3.5, 0 7" fill="#00d4ff" opacity="0.8"/>
+    </marker>
+    <marker id="arrow-muted" markerWidth="10" markerHeight="7" refX="9" refY="3.5" orient="auto">
+      <polygon points="0 0, 10 3.5, 0 7" fill="#6b7280" opacity="0.8"/>
+    </marker>
+  </defs>
+
+  <!-- Background -->
+  <rect width="1400" height="1000" fill="#08080f"/>
+  <rect width="1400" height="1000" fill="url(#dotgrid)"/>
+
+  <!-- Title -->
+  <text x="48" y="52" font-family="system-ui,'Segoe UI',sans-serif" font-size="11" font-weight="700"
+        letter-spacing="0.12em" fill="#00d4ff">BMAD METHOD</text>
+  <text x="48" y="74" font-family="system-ui,'Segoe UI',sans-serif" font-size="22" font-weight="700"
+        fill="#e8eaf0">UML Use Case Diagram</text>
+  <text x="48" y="96" font-family="system-ui,'Segoe UI',sans-serif" font-size="12" fill="#6b7280">
+    Agent actors and their associated use cases within the BMAD workflow</text>
+
+  <!-- System boundary -->
+  <rect x="300" y="120" width="800" height="820" rx="16" fill="none"
+        stroke="#00d4ff25" stroke-width="1.5" stroke-dasharray="8,5"/>
+  <text x="700" y="148" font-family="system-ui,'Segoe UI',sans-serif" font-size="11"
+        font-weight="700" letter-spacing="0.1em" fill="#00d4ff40" text-anchor="middle">BMAD METHOD SYSTEM</text>
+
+  <!-- ===== ACTOR HELPER: stick figure ===== -->
+  <!-- Mary (Business Analyst) -->
+  <circle cx="80" cy="250" r="16" fill="none" stroke="#9b59ff" stroke-width="2"/>
+  <line x1="80" y1="266" x2="80" y2="316" stroke="#9b59ff" stroke-width="2"/>
+  <line x1="52" y1="284" x2="108" y2="284" stroke="#9b59ff" stroke-width="2"/>
+  <line x1="80" y1="316" x2="56" y2="346" stroke="#9b59ff" stroke-width="2"/>
+  <line x1="80" y1="316" x2="104" y2="346" stroke="#9b59ff" stroke-width="2"/>
+  <text x="80" y="366" font-family="system-ui,'Segoe UI',sans-serif" font-size="11"
+        font-weight="600" fill="#9b59ff" text-anchor="middle">Mary</text>
+  <text x="80" y="380" font-family="system-ui,'Segoe UI',sans-serif" font-size="10"
+        fill="#6b7280" text-anchor="middle">Business Analyst</text>
+
+  <!-- Paige (Tech Writer) -->
+  <circle cx="80" cy="460" r="16" fill="none" stroke="#9b59ff" stroke-width="2"/>
+  <line x1="80" y1="476" x2="80" y2="526" stroke="#9b59ff" stroke-width="2"/>
+  <line x1="52" y1="494" x2="108" y2="494" stroke="#9b59ff" stroke-width="2"/>
+  <line x1="80" y1="526" x2="56" y2="556" stroke="#9b59ff" stroke-width="2"/>
+  <line x1="80" y1="526" x2="104" y2="556" stroke="#9b59ff" stroke-width="2"/>
+  <text x="80" y="576" font-family="system-ui,'Segoe UI',sans-serif" font-size="11"
+        font-weight="600" fill="#9b59ff" text-anchor="middle">Paige</text>
+  <text x="80" y="590" font-family="system-ui,'Segoe UI',sans-serif" font-size="10"
+        fill="#6b7280" text-anchor="middle">Tech Writer</text>
+
+  <!-- John (Product Manager) -->
+  <circle cx="80" cy="640" r="16" fill="none" stroke="#00d4ff" stroke-width="2"/>
+  <line x1="80" y1="656" x2="80" y2="706" stroke="#00d4ff" stroke-width="2"/>
+  <line x1="52" y1="674" x2="108" y2="674" stroke="#00d4ff" stroke-width="2"/>
+  <line x1="80" y1="706" x2="56" y2="736" stroke="#00d4ff" stroke-width="2"/>
+  <line x1="80" y1="706" x2="104" y2="736" stroke="#00d4ff" stroke-width="2"/>
+  <text x="80" y="756" font-family="system-ui,'Segoe UI',sans-serif" font-size="11"
+        font-weight="600" fill="#00d4ff" text-anchor="middle">John</text>
+  <text x="80" y="770" font-family="system-ui,'Segoe UI',sans-serif" font-size="10"
+        fill="#6b7280" text-anchor="middle">Product Manager</text>
+
+  <!-- Sally (UX Designer) -->
+  <circle cx="80" cy="820" r="16" fill="none" stroke="#00d4ff" stroke-width="2"/>
+  <line x1="80" y1="836" x2="80" y2="886" stroke="#00d4ff" stroke-width="2"/>
+  <line x1="52" y1="854" x2="108" y2="854" stroke="#00d4ff" stroke-width="2"/>
+  <line x1="80" y1="886" x2="56" y2="916" stroke="#00d4ff" stroke-width="2"/>
+  <line x1="80" y1="886" x2="104" y2="916" stroke="#00d4ff" stroke-width="2"/>
+  <text x="80" y="936" font-family="system-ui,'Segoe UI',sans-serif" font-size="11"
+        font-weight="600" fill="#00d4ff" text-anchor="middle">Sally</text>
+  <text x="80" y="950" font-family="system-ui,'Segoe UI',sans-serif" font-size="10"
+        fill="#6b7280" text-anchor="middle">UX Designer</text>
+
+  <!-- Winston (Architect) -->
+  <circle cx="1320" cy="460" r="16" fill="none" stroke="#ff9500" stroke-width="2"/>
+  <line x1="1320" y1="476" x2="1320" y2="526" stroke="#ff9500" stroke-width="2"/>
+  <line x1="1292" y1="494" x2="1348" y2="494" stroke="#ff9500" stroke-width="2"/>
+  <line x1="1320" y1="526" x2="1296" y2="556" stroke="#ff9500" stroke-width="2"/>
+  <line x1="1320" y1="526" x2="1344" y2="556" stroke="#ff9500" stroke-width="2"/>
+  <text x="1320" y="576" font-family="system-ui,'Segoe UI',sans-serif" font-size="11"
+        font-weight="600" fill="#ff9500" text-anchor="middle">Winston</text>
+  <text x="1320" y="590" font-family="system-ui,'Segoe UI',sans-serif" font-size="10"
+        fill="#6b7280" text-anchor="middle">Sys. Architect</text>
+
+  <!-- Amelia (Senior Dev) -->
+  <circle cx="1320" cy="700" r="16" fill="none" stroke="#ff9500" stroke-width="2"/>
+  <line x1="1320" y1="716" x2="1320" y2="766" stroke="#ff9500" stroke-width="2"/>
+  <line x1="1292" y1="734" x2="1348" y2="734" stroke="#ff9500" stroke-width="2"/>
+  <line x1="1320" y1="766" x2="1296" y2="796" stroke="#ff9500" stroke-width="2"/>
+  <line x1="1320" y1="766" x2="1344" y2="796" stroke="#ff9500" stroke-width="2"/>
+  <text x="1320" y="816" font-family="system-ui,'Segoe UI',sans-serif" font-size="11"
+        font-weight="600" fill="#ff9500" text-anchor="middle">Amelia</text>
+  <text x="1320" y="830" font-family="system-ui,'Segoe UI',sans-serif" font-size="10"
+        fill="#6b7280" text-anchor="middle">Senior Dev</text>
+
+  <!-- User / Developer (right) -->
+  <circle cx="1320" cy="250" r="16" fill="none" stroke="#e8eaf0" stroke-width="2"/>
+  <line x1="1320" y1="266" x2="1320" y2="316" stroke="#e8eaf0" stroke-width="2"/>
+  <line x1="1292" y1="284" x2="1348" y2="284" stroke="#e8eaf0" stroke-width="2"/>
+  <line x1="1320" y1="316" x2="1296" y2="346" stroke="#e8eaf0" stroke-width="2"/>
+  <line x1="1320" y1="316" x2="1344" y2="346" stroke="#e8eaf0" stroke-width="2"/>
+  <text x="1320" y="366" font-family="system-ui,'Segoe UI',sans-serif" font-size="11"
+        font-weight="600" fill="#e8eaf0" text-anchor="middle">Developer</text>
+  <text x="1320" y="380" font-family="system-ui,'Segoe UI',sans-serif" font-size="10"
+        fill="#6b7280" text-anchor="middle">User / Human</text>
+
+  <!-- ===== USE CASE OVALS ===== -->
+  <!-- Column 1: Phase 1 -->
+  <ellipse cx="490" cy="210" rx="120" ry="28" fill="#9b59ff18" stroke="#9b59ff" stroke-width="1.5"/>
+  <text x="490" y="215" font-family="system-ui,'Segoe UI',sans-serif" font-size="11"
+        font-weight="600" fill="#e8eaf0" text-anchor="middle">Brainstorm Project</text>
+
+  <ellipse cx="490" cy="290" rx="120" ry="28" fill="#9b59ff18" stroke="#9b59ff" stroke-width="1.5"/>
+  <text x="490" y="295" font-family="system-ui,'Segoe UI',sans-serif" font-size="11"
+        font-weight="600" fill="#e8eaf0" text-anchor="middle">Create Product Brief</text>
+
+  <ellipse cx="490" cy="370" rx="120" ry="28" fill="#9b59ff18" stroke="#9b59ff" stroke-width="1.5"/>
+  <text x="490" y="375" font-family="system-ui,'Segoe UI',sans-serif" font-size="11"
+        font-weight="600" fill="#e8eaf0" text-anchor="middle">PRFAQ Challenge</text>
+
+  <ellipse cx="490" cy="450" rx="120" ry="28" fill="#9b59ff18" stroke="#9b59ff" stroke-width="1.5"/>
+  <text x="490" y="455" font-family="system-ui,'Segoe UI',sans-serif" font-size="11"
+        font-weight="600" fill="#e8eaf0" text-anchor="middle">Market Research</text>
+
+  <ellipse cx="490" cy="530" rx="120" ry="28" fill="#9b59ff18" stroke="#9b59ff" stroke-width="1.5"/>
+  <text x="490" y="535" font-family="system-ui,'Segoe UI',sans-serif" font-size="11"
+        font-weight="600" fill="#e8eaf0" text-anchor="middle">Document Project</text>
+
+  <!-- Column 2: Phase 2 -->
+  <ellipse cx="700" cy="630" rx="120" ry="28" fill="#00d4ff18" stroke="#00d4ff" stroke-width="1.5"/>
+  <text x="700" y="635" font-family="system-ui,'Segoe UI',sans-serif" font-size="11"
+        font-weight="600" fill="#e8eaf0" text-anchor="middle">Create PRD</text>
+
+  <ellipse cx="700" cy="710" rx="120" ry="28" fill="#00d4ff18" stroke="#00d4ff" stroke-width="1.5"/>
+  <text x="700" y="715" font-family="system-ui,'Segoe UI',sans-serif" font-size="11"
+        font-weight="600" fill="#e8eaf0" text-anchor="middle">Validate PRD</text>
+
+  <ellipse cx="700" cy="790" rx="120" ry="28" fill="#00d4ff18" stroke="#00d4ff" stroke-width="1.5"/>
+  <text x="700" y="795" font-family="system-ui,'Segoe UI',sans-serif" font-size="11"
+        font-weight="600" fill="#e8eaf0" text-anchor="middle">Create UX Design</text>
+
+  <!-- Column 3: Phase 3 -->
+  <ellipse cx="910" cy="370" rx="130" ry="28" fill="#ff950018" stroke="#ff9500" stroke-width="1.5"/>
+  <text x="910" y="375" font-family="system-ui,'Segoe UI',sans-serif" font-size="11"
+        font-weight="600" fill="#e8eaf0" text-anchor="middle">Design Architecture</text>
+
+  <ellipse cx="910" cy="450" rx="130" ry="28" fill="#ff950018" stroke="#ff9500" stroke-width="1.5"/>
+  <text x="910" y="455" font-family="system-ui,'Segoe UI',sans-serif" font-size="11"
+        font-weight="600" fill="#e8eaf0" text-anchor="middle">Create Epics &amp; Stories</text>
+
+  <ellipse cx="910" cy="530" rx="130" ry="28" fill="#ff950018" stroke="#ff9500" stroke-width="1.5"/>
+  <text x="910" y="535" font-family="system-ui,'Segoe UI',sans-serif" font-size="11"
+        font-weight="600" fill="#e8eaf0" text-anchor="middle">Readiness Check</text>
+
+  <!-- Column 4: Phase 4 -->
+  <ellipse cx="910" cy="640" rx="130" ry="28" fill="#22c55e18" stroke="#22c55e" stroke-width="1.5"/>
+  <text x="910" y="645" font-family="system-ui,'Segoe UI',sans-serif" font-size="11"
+        font-weight="600" fill="#e8eaf0" text-anchor="middle">Sprint Planning</text>
+
+  <ellipse cx="910" cy="720" rx="130" ry="28" fill="#22c55e18" stroke="#22c55e" stroke-width="1.5"/>
+  <text x="910" y="725" font-family="system-ui,'Segoe UI',sans-serif" font-size="11"
+        font-weight="600" fill="#e8eaf0" text-anchor="middle">Implement Dev Story</text>
+
+  <ellipse cx="910" cy="800" rx="130" ry="28" fill="#22c55e18" stroke="#22c55e" stroke-width="1.5"/>
+  <text x="910" y="805" font-family="system-ui,'Segoe UI',sans-serif" font-size="11"
+        font-weight="600" fill="#e8eaf0" text-anchor="middle">Code Review</text>
+
+  <ellipse cx="910" cy="880" rx="130" ry="28" fill="#22c55e18" stroke="#22c55e" stroke-width="1.5"/>
+  <text x="910" y="885" font-family="system-ui,'Segoe UI',sans-serif" font-size="11"
+        font-weight="600" fill="#e8eaf0" text-anchor="middle">Generate E2E Tests</text>
+
+  <!-- Developer use cases -->
+  <ellipse cx="490" cy="870" rx="120" ry="28" fill="#ffffff0a" stroke="#e8eaf040" stroke-width="1.5"/>
+  <text x="490" y="875" font-family="system-ui,'Segoe UI',sans-serif" font-size="11"
+        font-weight="600" fill="#e8eaf0" text-anchor="middle">Trigger Workflow</text>
+
+  <ellipse cx="700" cy="870" rx="120" ry="28" fill="#ffffff0a" stroke="#e8eaf040" stroke-width="1.5"/>
+  <text x="700" y="875" font-family="system-ui,'Segoe UI',sans-serif" font-size="11"
+        font-weight="600" fill="#e8eaf0" text-anchor="middle">Review &amp; Approve</text>
+
+  <!-- ===== ACTOR → USE CASE LINES ===== -->
+  <!-- Mary → Brainstorm, Brief, PRFAQ, Research -->
+  <line x1="96" y1="265" x2="370" y2="210" stroke="#9b59ff" stroke-width="1.2" opacity="0.6" marker-end="url(#arrow-muted)"/>
+  <line x1="96" y1="270" x2="370" y2="290" stroke="#9b59ff" stroke-width="1.2" opacity="0.6" marker-end="url(#arrow-muted)"/>
+  <line x1="96" y1="275" x2="370" y2="370" stroke="#9b59ff" stroke-width="1.2" opacity="0.6" marker-end="url(#arrow-muted)"/>
+  <line x1="96" y1="280" x2="370" y2="450" stroke="#9b59ff" stroke-width="1.2" opacity="0.6" marker-end="url(#arrow-muted)"/>
+
+  <!-- Paige → Document Project, Brief -->
+  <line x1="96" y1="472" x2="370" y2="290" stroke="#9b59ff" stroke-width="1.2" opacity="0.6" marker-end="url(#arrow-muted)"/>
+  <line x1="96" y1="476" x2="370" y2="530" stroke="#9b59ff" stroke-width="1.2" opacity="0.6" marker-end="url(#arrow-muted)"/>
+
+  <!-- John → PRD, Validate PRD -->
+  <line x1="96" y1="650" x2="578" y2="630" stroke="#00d4ff" stroke-width="1.2" opacity="0.6" marker-end="url(#arrow-muted)"/>
+  <line x1="96" y1="655" x2="578" y2="710" stroke="#00d4ff" stroke-width="1.2" opacity="0.6" marker-end="url(#arrow-muted)"/>
+
+  <!-- Sally → UX Design -->
+  <line x1="96" y1="830" x2="578" y2="790" stroke="#00d4ff" stroke-width="1.2" opacity="0.6" marker-end="url(#arrow-muted)"/>
+
+  <!-- Winston → Architecture, Epics, Readiness, Sprint -->
+  <line x1="1304" y1="472" x2="1042" y2="370" stroke="#ff9500" stroke-width="1.2" opacity="0.6" marker-end="url(#arrow-muted)"/>
+  <line x1="1304" y1="476" x2="1042" y2="450" stroke="#ff9500" stroke-width="1.2" opacity="0.6" marker-end="url(#arrow-muted)"/>
+  <line x1="1304" y1="480" x2="1042" y2="530" stroke="#ff9500" stroke-width="1.2" opacity="0.6" marker-end="url(#arrow-muted)"/>
+  <line x1="1304" y1="484" x2="1042" y2="640" stroke="#ff9500" stroke-width="1.2" opacity="0.6" marker-end="url(#arrow-muted)"/>
+
+  <!-- Amelia → Dev Story, Code Review, Tests -->
+  <line x1="1304" y1="712" x2="1042" y2="720" stroke="#ff9500" stroke-width="1.2" opacity="0.6" marker-end="url(#arrow-muted)"/>
+  <line x1="1304" y1="716" x2="1042" y2="800" stroke="#ff9500" stroke-width="1.2" opacity="0.6" marker-end="url(#arrow-muted)"/>
+  <line x1="1304" y1="720" x2="1042" y2="880" stroke="#ff9500" stroke-width="1.2" opacity="0.6" marker-end="url(#arrow-muted)"/>
+
+  <!-- Developer/User → Trigger, Review -->
+  <line x1="1304" y1="266" x2="612" y2="870" stroke="#e8eaf0" stroke-width="1.2" opacity="0.4" marker-end="url(#arrow-muted)"/>
+  <line x1="1304" y1="270" x2="822" y2="870" stroke="#e8eaf0" stroke-width="1.2" opacity="0.4" marker-end="url(#arrow-muted)"/>
+
+  <!-- Phase column headers -->
+  <text x="490" y="168" font-family="system-ui,'Segoe UI',sans-serif" font-size="10"
+        font-weight="700" letter-spacing="0.1em" fill="#9b59ff80" text-anchor="middle">PHASE 1 — ANALYSIS</text>
+  <text x="700" y="600" font-family="system-ui,'Segoe UI',sans-serif" font-size="10"
+        font-weight="700" letter-spacing="0.1em" fill="#00d4ff80" text-anchor="middle">PHASE 2 — PLAN</text>
+  <text x="910" y="338" font-family="system-ui,'Segoe UI',sans-serif" font-size="10"
+        font-weight="700" letter-spacing="0.1em" fill="#ff950080" text-anchor="middle">PHASES 3 &amp; 4</text>
+
+  <!-- Legend -->
+  <rect x="48" y="930" width="440" height="50" rx="8" fill="#ffffff05" stroke="#ffffff0f" stroke-width="1"/>
+  <text x="68" y="950" font-family="system-ui,'Segoe UI',sans-serif" font-size="10"
+        font-weight="700" letter-spacing="0.08em" fill="#6b7280">LEGEND</text>
+  <circle cx="80" cy="968" r="8" fill="none" stroke="#9b59ff" stroke-width="1.5"/>
+  <text x="96" y="972" font-family="system-ui,'Segoe UI',sans-serif" font-size="10" fill="#9b9eb0">Phase 1 agent</text>
+  <circle cx="200" cy="968" r="8" fill="none" stroke="#00d4ff" stroke-width="1.5"/>
+  <text x="216" y="972" font-family="system-ui,'Segoe UI',sans-serif" font-size="10" fill="#9b9eb0">Phase 2 agent</text>
+  <circle cx="320" cy="968" r="8" fill="none" stroke="#ff9500" stroke-width="1.5"/>
+  <text x="336" y="972" font-family="system-ui,'Segoe UI',sans-serif" font-size="10" fill="#9b9eb0">Phase 3/4 agent</text>
+
+  <!-- Watermark -->
+  <text x="1352" y="982" font-family="system-ui,'Segoe UI',sans-serif" font-size="10"
+        letter-spacing="0.06em" fill="#ffffff14" text-anchor="end">BMAD METHOD</text>
+</svg>
+</body>
+</html>

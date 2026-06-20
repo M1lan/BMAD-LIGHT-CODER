@@ -1,0 +1,309 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>BMAD Method — Artifact Entity Relationship Diagram</title>
+<style>
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+  body {
+    background: #08080f;
+    display: flex;
+    justify-content: center;
+    align-items: flex-start;
+    min-height: 100vh;
+    font-family: system-ui, 'Segoe UI', sans-serif;
+    padding: 32px 16px;
+  }
+  svg { display: block; }
+</style>
+</head>
+<body>
+<svg width="1400" height="1000" viewBox="0 0 1400 1000" xmlns="http://www.w3.org/2000/svg">
+  <defs>
+    <pattern id="dotgrid" x="0" y="0" width="24" height="24" patternUnits="userSpaceOnUse">
+      <circle cx="1" cy="1" r="1" fill="#ffffff08"/>
+    </pattern>
+    <!-- Crow's foot markers -->
+    <!-- One (single vertical bar) -->
+    <marker id="one-left" markerWidth="10" markerHeight="14" refX="1" refY="7" orient="auto">
+      <line x1="1" y1="2" x2="1" y2="12" stroke="#00d4ff" stroke-width="1.5"/>
+      <line x1="4" y1="2" x2="4" y2="12" stroke="#00d4ff" stroke-width="1.5"/>
+    </marker>
+    <marker id="one-right" markerWidth="10" markerHeight="14" refX="9" refY="7" orient="auto">
+      <line x1="6" y1="2" x2="6" y2="12" stroke="#00d4ff" stroke-width="1.5"/>
+      <line x1="9" y1="2" x2="9" y2="12" stroke="#00d4ff" stroke-width="1.5"/>
+    </marker>
+    <!-- Many (crow's foot) -->
+    <marker id="many-right" markerWidth="12" markerHeight="14" refX="10" refY="7" orient="auto">
+      <line x1="1" y1="7" x2="10" y2="2" stroke="#00d4ff" stroke-width="1.5"/>
+      <line x1="1" y1="7" x2="10" y2="7" stroke="#00d4ff" stroke-width="1.5"/>
+      <line x1="1" y1="7" x2="10" y2="12" stroke="#00d4ff" stroke-width="1.5"/>
+    </marker>
+    <marker id="many-left" markerWidth="12" markerHeight="14" refX="1" refY="7" orient="auto">
+      <line x1="10" y1="7" x2="1" y2="2" stroke="#00d4ff" stroke-width="1.5"/>
+      <line x1="10" y1="7" x2="1" y2="7" stroke="#00d4ff" stroke-width="1.5"/>
+      <line x1="10" y1="7" x2="1" y2="12" stroke="#00d4ff" stroke-width="1.5"/>
+    </marker>
+    <marker id="arrow-cyan" markerWidth="10" markerHeight="7" refX="9" refY="3.5" orient="auto">
+      <polygon points="0 0, 10 3.5, 0 7" fill="#00d4ff" opacity="0.8"/>
+    </marker>
+  </defs>
+
+  <!-- Background -->
+  <rect width="1400" height="1000" fill="#08080f"/>
+  <rect width="1400" height="1000" fill="url(#dotgrid)"/>
+
+  <!-- Title -->
+  <text x="48" y="52" font-family="system-ui,'Segoe UI',sans-serif" font-size="11" font-weight="700"
+        letter-spacing="0.12em" fill="#00d4ff">BMAD METHOD</text>
+  <text x="48" y="74" font-family="system-ui,'Segoe UI',sans-serif" font-size="22" font-weight="700"
+        fill="#e8eaf0">Artifact Entity Relationship Diagram</text>
+  <text x="48" y="96" font-family="system-ui,'Segoe UI',sans-serif" font-size="12" fill="#6b7280">
+    Entities, attributes, and relationships between BMAD artifacts — crow's-foot notation</text>
+
+  <!-- ===== ENTITY BOXES ===== -->
+  <!-- Helper: entity box = header + divider + attributes -->
+
+  <!-- ProductBrief (top-left) -->
+  <rect x="60" y="150" width="200" height="150" rx="10" fill="#1a0a2e" stroke="#9b59ff" stroke-width="2"/>
+  <rect x="60" y="150" width="200" height="36" rx="10" fill="#9b59ff30"/>
+  <rect x="60" y="176" width="200" height="10" fill="#9b59ff30"/>
+  <text x="160" y="173" font-family="system-ui,'Segoe UI',sans-serif" font-size="12"
+        font-weight="700" fill="#9b59ff" text-anchor="middle">ProductBrief</text>
+  <text x="80" y="206" font-family="system-ui,'Segoe UI',sans-serif" font-size="10" fill="#9b9eb0">
+    <tspan x="80" dy="0">PK  id: uuid</tspan>
+    <tspan x="80" dy="18">    title: string</tspan>
+    <tspan x="80" dy="18">    vision: text</tspan>
+    <tspan x="80" dy="18">    target_users: text</tspan>
+    <tspan x="80" dy="18">    created_at: datetime</tspan>
+  </text>
+
+  <!-- PRFAQ (top-center-left) -->
+  <rect x="310" y="150" width="200" height="150" rx="10" fill="#1a0a2e" stroke="#9b59ff" stroke-width="2"/>
+  <rect x="310" y="150" width="200" height="36" rx="10" fill="#9b59ff30"/>
+  <rect x="310" y="176" width="200" height="10" fill="#9b59ff30"/>
+  <text x="410" y="173" font-family="system-ui,'Segoe UI',sans-serif" font-size="12"
+        font-weight="700" fill="#9b59ff" text-anchor="middle">PRFAQ</text>
+  <text x="330" y="206" font-family="system-ui,'Segoe UI',sans-serif" font-size="10" fill="#9b9eb0">
+    <tspan x="330" dy="0">PK  id: uuid</tspan>
+    <tspan x="330" dy="18">FK  brief_id: uuid</tspan>
+    <tspan x="330" dy="18">    press_release: text</tspan>
+    <tspan x="330" dy="18">    faqs: json</tspan>
+    <tspan x="330" dy="18">    version: int</tspan>
+  </text>
+
+  <!-- PRD (top-center) -->
+  <rect x="560" y="150" width="200" height="168" rx="10" fill="#0a1a2e" stroke="#00d4ff" stroke-width="2"/>
+  <rect x="560" y="150" width="200" height="36" rx="10" fill="#00d4ff30"/>
+  <rect x="560" y="176" width="200" height="10" fill="#00d4ff30"/>
+  <text x="660" y="173" font-family="system-ui,'Segoe UI',sans-serif" font-size="12"
+        font-weight="700" fill="#00d4ff" text-anchor="middle">PRD</text>
+  <text x="580" y="206" font-family="system-ui,'Segoe UI',sans-serif" font-size="10" fill="#9b9eb0">
+    <tspan x="580" dy="0">PK  id: uuid</tspan>
+    <tspan x="580" dy="18">FK  brief_id: uuid</tspan>
+    <tspan x="580" dy="18">    goals: text</tspan>
+    <tspan x="580" dy="18">    requirements: json</tspan>
+    <tspan x="580" dy="18">    acceptance: text</tspan>
+    <tspan x="580" dy="18">    status: enum</tspan>
+  </text>
+
+  <!-- UXDesign (top-center-right) -->
+  <rect x="810" y="150" width="200" height="150" rx="10" fill="#0a1a2e" stroke="#00d4ff" stroke-width="2"/>
+  <rect x="810" y="150" width="200" height="36" rx="10" fill="#00d4ff30"/>
+  <rect x="810" y="176" width="200" height="10" fill="#00d4ff30"/>
+  <text x="910" y="173" font-family="system-ui,'Segoe UI',sans-serif" font-size="12"
+        font-weight="700" fill="#00d4ff" text-anchor="middle">UXDesign</text>
+  <text x="830" y="206" font-family="system-ui,'Segoe UI',sans-serif" font-size="10" fill="#9b9eb0">
+    <tspan x="830" dy="0">PK  id: uuid</tspan>
+    <tspan x="830" dy="18">FK  prd_id: uuid</tspan>
+    <tspan x="830" dy="18">    wireframes: text</tspan>
+    <tspan x="830" dy="18">    user_flows: json</tspan>
+    <tspan x="830" dy="18">    design_system: text</tspan>
+  </text>
+
+  <!-- ArchitectureSpine (top-right) -->
+  <rect x="1060" y="150" width="200" height="168" rx="10" fill="#2e1a0a" stroke="#ff9500" stroke-width="2"/>
+  <rect x="1060" y="150" width="200" height="36" rx="10" fill="#ff950030"/>
+  <rect x="1060" y="176" width="200" height="10" fill="#ff950030"/>
+  <text x="1160" y="173" font-family="system-ui,'Segoe UI',sans-serif" font-size="12"
+        font-weight="700" fill="#ff9500" text-anchor="middle">ArchitectureSpine</text>
+  <text x="1080" y="206" font-family="system-ui,'Segoe UI',sans-serif" font-size="10" fill="#9b9eb0">
+    <tspan x="1080" dy="0">PK  id: uuid</tspan>
+    <tspan x="1080" dy="18">FK  prd_id: uuid</tspan>
+    <tspan x="1080" dy="18">    tech_stack: json</tspan>
+    <tspan x="1080" dy="18">    components: json</tspan>
+    <tspan x="1080" dy="18">    decisions: text</tspan>
+    <tspan x="1080" dy="18">    file: string</tspan>
+  </text>
+
+  <!-- EpicsStories (middle-left) -->
+  <rect x="60" y="440" width="200" height="150" rx="10" fill="#2e1a0a" stroke="#ff9500" stroke-width="2"/>
+  <rect x="60" y="440" width="200" height="36" rx="10" fill="#ff950030"/>
+  <rect x="60" y="466" width="200" height="10" fill="#ff950030"/>
+  <text x="160" y="463" font-family="system-ui,'Segoe UI',sans-serif" font-size="12"
+        font-weight="700" fill="#ff9500" text-anchor="middle">EpicsStories</text>
+  <text x="80" y="496" font-family="system-ui,'Segoe UI',sans-serif" font-size="10" fill="#9b9eb0">
+    <tspan x="80" dy="0">PK  id: uuid</tspan>
+    <tspan x="80" dy="18">FK  arch_id: uuid</tspan>
+    <tspan x="80" dy="18">    epics: json</tspan>
+    <tspan x="80" dy="18">    stories: json</tspan>
+    <tspan x="80" dy="18">    priority: int</tspan>
+  </text>
+
+  <!-- SprintPlan (middle-center-left) -->
+  <rect x="310" y="440" width="200" height="150" rx="10" fill="#0a2e1a" stroke="#22c55e" stroke-width="2"/>
+  <rect x="310" y="440" width="200" height="36" rx="10" fill="#22c55e30"/>
+  <rect x="310" y="466" width="200" height="10" fill="#22c55e30"/>
+  <text x="410" y="463" font-family="system-ui,'Segoe UI',sans-serif" font-size="12"
+        font-weight="700" fill="#22c55e" text-anchor="middle">SprintPlan</text>
+  <text x="330" y="496" font-family="system-ui,'Segoe UI',sans-serif" font-size="10" fill="#9b9eb0">
+    <tspan x="330" dy="0">PK  id: uuid</tspan>
+    <tspan x="330" dy="18">FK  epics_id: uuid</tspan>
+    <tspan x="330" dy="18">    sprint_no: int</tspan>
+    <tspan x="330" dy="18">    goals: text</tspan>
+    <tspan x="330" dy="18">    status: enum</tspan>
+  </text>
+
+  <!-- Story (middle-center) -->
+  <rect x="560" y="440" width="200" height="168" rx="10" fill="#0a2e1a" stroke="#22c55e" stroke-width="2"/>
+  <rect x="560" y="440" width="200" height="36" rx="10" fill="#22c55e30"/>
+  <rect x="560" y="466" width="200" height="10" fill="#22c55e30"/>
+  <text x="660" y="463" font-family="system-ui,'Segoe UI',sans-serif" font-size="12"
+        font-weight="700" fill="#22c55e" text-anchor="middle">Story</text>
+  <text x="580" y="496" font-family="system-ui,'Segoe UI',sans-serif" font-size="10" fill="#9b9eb0">
+    <tspan x="580" dy="0">PK  id: uuid</tspan>
+    <tspan x="580" dy="18">FK  sprint_id: uuid</tspan>
+    <tspan x="580" dy="18">    title: string</tspan>
+    <tspan x="580" dy="18">    acceptance: text</tspan>
+    <tspan x="580" dy="18">    points: int</tspan>
+    <tspan x="580" dy="18">    status: enum</tspan>
+  </text>
+
+  <!-- Implementation (middle-right) -->
+  <rect x="810" y="440" width="200" height="150" rx="10" fill="#0a2e1a" stroke="#22c55e" stroke-width="2"/>
+  <rect x="810" y="440" width="200" height="36" rx="10" fill="#22c55e30"/>
+  <rect x="810" y="466" width="200" height="10" fill="#22c55e30"/>
+  <text x="910" y="463" font-family="system-ui,'Segoe UI',sans-serif" font-size="12"
+        font-weight="700" fill="#22c55e" text-anchor="middle">Implementation</text>
+  <text x="830" y="496" font-family="system-ui,'Segoe UI',sans-serif" font-size="10" fill="#9b9eb0">
+    <tspan x="830" dy="0">PK  id: uuid</tspan>
+    <tspan x="830" dy="18">FK  story_id: uuid</tspan>
+    <tspan x="830" dy="18">    pr_url: string</tspan>
+    <tspan x="830" dy="18">    review_status: enum</tspan>
+    <tspan x="830" dy="18">    merged_at: datetime</tspan>
+  </text>
+
+  <!-- TestSuite (bottom-right) -->
+  <rect x="1060" y="440" width="200" height="150" rx="10" fill="#0a2e1a" stroke="#22c55e" stroke-width="2"/>
+  <rect x="1060" y="440" width="200" height="36" rx="10" fill="#22c55e30"/>
+  <rect x="1060" y="466" width="200" height="10" fill="#22c55e30"/>
+  <text x="1160" y="463" font-family="system-ui,'Segoe UI',sans-serif" font-size="12"
+        font-weight="700" fill="#22c55e" text-anchor="middle">TestSuite</text>
+  <text x="1080" y="496" font-family="system-ui,'Segoe UI',sans-serif" font-size="10" fill="#9b9eb0">
+    <tspan x="1080" dy="0">PK  id: uuid</tspan>
+    <tspan x="1080" dy="18">FK  impl_id: uuid</tspan>
+    <tspan x="1080" dy="18">    e2e_tests: json</tspan>
+    <tspan x="1080" dy="18">    coverage: float</tspan>
+    <tspan x="1080" dy="18">    passed: bool</tspan>
+  </text>
+
+  <!-- ===== RELATIONSHIP LINES (crow's foot) ===== -->
+  <!-- ProductBrief 1 ── 1 PRFAQ -->
+  <line x1="260" y1="225" x2="310" y2="225" stroke="#9b59ff" stroke-width="1.5" opacity="0.7"/>
+  <!-- 1 marks -->
+  <line x1="268" y1="218" x2="268" y2="232" stroke="#9b59ff" stroke-width="1.5"/>
+  <line x1="302" y1="218" x2="302" y2="232" stroke="#9b59ff" stroke-width="1.5"/>
+  <text x="285" y="214" font-family="system-ui,'Segoe UI',sans-serif" font-size="9" fill="#9b9eb0" text-anchor="middle">1:1</text>
+
+  <!-- ProductBrief 1 ── 1 PRD -->
+  <line x1="260" y1="240" x2="560" y2="240" stroke="#00d4ff" stroke-width="1.5" opacity="0.7"/>
+  <line x1="268" y1="233" x2="268" y2="247" stroke="#00d4ff" stroke-width="1.5"/>
+  <line x1="552" y1="233" x2="552" y2="247" stroke="#00d4ff" stroke-width="1.5"/>
+  <text x="410" y="234" font-family="system-ui,'Segoe UI',sans-serif" font-size="9" fill="#9b9eb0" text-anchor="middle">1:1</text>
+
+  <!-- PRD 1 ── 1 UXDesign -->
+  <line x1="760" y1="225" x2="810" y2="225" stroke="#00d4ff" stroke-width="1.5" opacity="0.7"/>
+  <line x1="768" y1="218" x2="768" y2="232" stroke="#00d4ff" stroke-width="1.5"/>
+  <line x1="802" y1="218" x2="802" y2="232" stroke="#00d4ff" stroke-width="1.5"/>
+  <text x="785" y="214" font-family="system-ui,'Segoe UI',sans-serif" font-size="9" fill="#9b9eb0" text-anchor="middle">1:1</text>
+
+  <!-- PRD 1 ── 1 ArchitectureSpine -->
+  <line x1="760" y1="240" x2="1060" y2="240" stroke="#ff9500" stroke-width="1.5" opacity="0.7"/>
+  <line x1="768" y1="233" x2="768" y2="247" stroke="#ff9500" stroke-width="1.5"/>
+  <line x1="1052" y1="233" x2="1052" y2="247" stroke="#ff9500" stroke-width="1.5"/>
+  <text x="910" y="234" font-family="system-ui,'Segoe UI',sans-serif" font-size="9" fill="#9b9eb0" text-anchor="middle">1:1</text>
+
+  <!-- ArchitectureSpine 1 ── N EpicsStories (via vertical path) -->
+  <line x1="1160" y1="318" x2="1160" y2="400" stroke="#ff9500" stroke-width="1.5" opacity="0.7"/>
+  <line x1="1160" y1="400" x2="160" y2="400" stroke="#ff9500" stroke-width="1.5" opacity="0.7"/>
+  <line x1="160" y1="400" x2="160" y2="440" stroke="#ff9500" stroke-width="1.5" opacity="0.7" marker-end="url(#arrow-cyan)"/>
+  <line x1="1152" y1="326" x2="1168" y2="326" stroke="#ff9500" stroke-width="1.5"/>
+  <!-- crow's foot at EpicsStories end -->
+  <line x1="152" y1="432" x2="160" y2="440" stroke="#ff9500" stroke-width="1.5"/>
+  <line x1="160" y1="432" x2="160" y2="440" stroke="#ff9500" stroke-width="1.5"/>
+  <line x1="168" y1="432" x2="160" y2="440" stroke="#ff9500" stroke-width="1.5"/>
+  <text x="680" y="395" font-family="system-ui,'Segoe UI',sans-serif" font-size="9" fill="#9b9eb0" text-anchor="middle">1:N</text>
+
+  <!-- EpicsStories 1 ── N SprintPlan -->
+  <line x1="260" y1="515" x2="310" y2="515" stroke="#22c55e" stroke-width="1.5" opacity="0.7"/>
+  <line x1="268" y1="508" x2="268" y2="522" stroke="#22c55e" stroke-width="1.5"/>
+  <!-- crow's foot -->
+  <line x1="302" y1="508" x2="310" y2="515" stroke="#22c55e" stroke-width="1.5"/>
+  <line x1="302" y1="515" x2="310" y2="515" stroke="#22c55e" stroke-width="1.5"/>
+  <line x1="302" y1="522" x2="310" y2="515" stroke="#22c55e" stroke-width="1.5"/>
+  <text x="285" y="506" font-family="system-ui,'Segoe UI',sans-serif" font-size="9" fill="#9b9eb0" text-anchor="middle">1:N</text>
+
+  <!-- SprintPlan 1 ── N Story -->
+  <line x1="510" y1="515" x2="560" y2="515" stroke="#22c55e" stroke-width="1.5" opacity="0.7"/>
+  <line x1="518" y1="508" x2="518" y2="522" stroke="#22c55e" stroke-width="1.5"/>
+  <line x1="552" y1="508" x2="560" y2="515" stroke="#22c55e" stroke-width="1.5"/>
+  <line x1="552" y1="515" x2="560" y2="515" stroke="#22c55e" stroke-width="1.5"/>
+  <line x1="552" y1="522" x2="560" y2="515" stroke="#22c55e" stroke-width="1.5"/>
+  <text x="535" y="506" font-family="system-ui,'Segoe UI',sans-serif" font-size="9" fill="#9b9eb0" text-anchor="middle">1:N</text>
+
+  <!-- Story 1 ── 1 Implementation -->
+  <line x1="760" y1="515" x2="810" y2="515" stroke="#22c55e" stroke-width="1.5" opacity="0.7"/>
+  <line x1="768" y1="508" x2="768" y2="522" stroke="#22c55e" stroke-width="1.5"/>
+  <line x1="802" y1="508" x2="802" y2="522" stroke="#22c55e" stroke-width="1.5"/>
+  <text x="785" y="506" font-family="system-ui,'Segoe UI',sans-serif" font-size="9" fill="#9b9eb0" text-anchor="middle">1:1</text>
+
+  <!-- Implementation 1 ── 1 TestSuite -->
+  <line x1="1010" y1="515" x2="1060" y2="515" stroke="#22c55e" stroke-width="1.5" opacity="0.7"/>
+  <line x1="1018" y1="508" x2="1018" y2="522" stroke="#22c55e" stroke-width="1.5"/>
+  <line x1="1052" y1="508" x2="1052" y2="522" stroke="#22c55e" stroke-width="1.5"/>
+  <text x="1035" y="506" font-family="system-ui,'Segoe UI',sans-serif" font-size="9" fill="#9b9eb0" text-anchor="middle">1:1</text>
+
+  <!-- Phase labels -->
+  <text x="700" y="136" font-family="system-ui,'Segoe UI',sans-serif" font-size="10"
+        font-weight="700" letter-spacing="0.1em" fill="#6b7280" text-anchor="middle">
+    ANALYSIS &amp; PLANNING ARTIFACTS</text>
+  <text x="700" y="428" font-family="system-ui,'Segoe UI',sans-serif" font-size="10"
+        font-weight="700" letter-spacing="0.1em" fill="#6b7280" text-anchor="middle">
+    SOLUTIONING &amp; IMPLEMENTATION ARTIFACTS</text>
+
+  <!-- Legend -->
+  <rect x="48" y="700" width="560" height="80" rx="8" fill="#ffffff05" stroke="#ffffff0f" stroke-width="1"/>
+  <text x="68" y="722" font-family="system-ui,'Segoe UI',sans-serif" font-size="10"
+        font-weight="700" letter-spacing="0.08em" fill="#6b7280">LEGEND — CROW'S FOOT NOTATION</text>
+  <!-- 1:1 example -->
+  <line x1="68" y1="745" x2="120" y2="745" stroke="#00d4ff" stroke-width="1.5"/>
+  <line x1="76" y1="738" x2="76" y2="752" stroke="#00d4ff" stroke-width="1.5"/>
+  <line x1="112" y1="738" x2="112" y2="752" stroke="#00d4ff" stroke-width="1.5"/>
+  <text x="128" y="749" font-family="system-ui,'Segoe UI',sans-serif" font-size="10" fill="#9b9eb0">One-to-one (1:1)</text>
+  <!-- 1:N example -->
+  <line x1="240" y1="745" x2="292" y2="745" stroke="#00d4ff" stroke-width="1.5"/>
+  <line x1="248" y1="738" x2="248" y2="752" stroke="#00d4ff" stroke-width="1.5"/>
+  <line x1="284" y1="738" x2="292" y2="745" stroke="#00d4ff" stroke-width="1.5"/>
+  <line x1="284" y1="745" x2="292" y2="745" stroke="#00d4ff" stroke-width="1.5"/>
+  <line x1="284" y1="752" x2="292" y2="745" stroke="#00d4ff" stroke-width="1.5"/>
+  <text x="300" y="749" font-family="system-ui,'Segoe UI',sans-serif" font-size="10" fill="#9b9eb0">One-to-many (1:N)</text>
+  <!-- PK/FK -->
+  <text x="68" y="770" font-family="system-ui,'Segoe UI',sans-serif" font-size="10" fill="#9b9eb0">PK = Primary Key   FK = Foreign Key   enum = enumerated type</text>
+
+  <!-- Watermark -->
+  <text x="1352" y="982" font-family="system-ui,'Segoe UI',sans-serif" font-size="10"
+        letter-spacing="0.06em" fill="#ffffff14" text-anchor="end">BMAD METHOD</text>
+</svg>
+</body>
+</html>

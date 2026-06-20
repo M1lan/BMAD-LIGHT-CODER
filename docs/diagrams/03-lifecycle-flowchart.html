@@ -1,0 +1,293 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>BMAD Method — Master Lifecycle Flowchart</title>
+<style>
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+  body {
+    background: #08080f;
+    display: flex;
+    justify-content: center;
+    align-items: flex-start;
+    min-height: 100vh;
+    font-family: system-ui, 'Segoe UI', sans-serif;
+    padding: 32px 16px;
+  }
+  svg { display: block; }
+</style>
+</head>
+<body>
+<svg width="1400" height="1560" viewBox="0 0 1400 1560" xmlns="http://www.w3.org/2000/svg">
+  <defs>
+    <pattern id="dotgrid" x="0" y="0" width="24" height="24" patternUnits="userSpaceOnUse">
+      <circle cx="1" cy="1" r="1" fill="#ffffff08"/>
+    </pattern>
+    <marker id="arrow-cyan" markerWidth="10" markerHeight="7" refX="9" refY="3.5" orient="auto">
+      <polygon points="0 0, 10 3.5, 0 7" fill="#00d4ff" opacity="0.9"/>
+    </marker>
+    <marker id="arrow-amber" markerWidth="10" markerHeight="7" refX="9" refY="3.5" orient="auto">
+      <polygon points="0 0, 10 3.5, 0 7" fill="#ff9500" opacity="0.9"/>
+    </marker>
+    <marker id="arrow-violet" markerWidth="10" markerHeight="7" refX="9" refY="3.5" orient="auto">
+      <polygon points="0 0, 10 3.5, 0 7" fill="#9b59ff" opacity="0.9"/>
+    </marker>
+    <marker id="arrow-green" markerWidth="10" markerHeight="7" refX="9" refY="3.5" orient="auto">
+      <polygon points="0 0, 10 3.5, 0 7" fill="#22c55e" opacity="0.9"/>
+    </marker>
+  </defs>
+
+  <!-- Background -->
+  <rect width="1400" height="1560" fill="#08080f"/>
+  <rect width="1400" height="1560" fill="url(#dotgrid)"/>
+
+  <!-- Title -->
+  <text x="48" y="52" font-family="system-ui,'Segoe UI',sans-serif" font-size="11" font-weight="700"
+        letter-spacing="0.12em" fill="#00d4ff">BMAD METHOD</text>
+  <text x="48" y="74" font-family="system-ui,'Segoe UI',sans-serif" font-size="22" font-weight="700"
+        fill="#e8eaf0">Master Lifecycle Flowchart</text>
+  <text x="48" y="96" font-family="system-ui,'Segoe UI',sans-serif" font-size="12" fill="#6b7280">
+    Full decision flow from new project idea through all 4 phases to deployed feature</text>
+
+  <!-- Phase labels (left margin) -->
+  <!-- Phase 1 -->
+  <rect x="20" y="200" width="22" height="280" rx="4" fill="#9b59ff20" stroke="#9b59ff40" stroke-width="1"/>
+  <text x="31" y="370" font-family="system-ui,'Segoe UI',sans-serif" font-size="10"
+        font-weight="700" letter-spacing="0.1em" fill="#9b59ff" text-anchor="middle"
+        transform="rotate(-90,31,370)">PHASE 1 — ANALYSIS</text>
+  <!-- Phase 2 -->
+  <rect x="20" y="500" width="22" height="240" rx="4" fill="#00d4ff20" stroke="#00d4ff40" stroke-width="1"/>
+  <text x="31" y="630" font-family="system-ui,'Segoe UI',sans-serif" font-size="10"
+        font-weight="700" letter-spacing="0.1em" fill="#00d4ff" text-anchor="middle"
+        transform="rotate(-90,31,630)">PHASE 2 — PLAN</text>
+  <!-- Phase 3 -->
+  <rect x="20" y="760" width="22" height="240" rx="4" fill="#ff950020" stroke="#ff950040" stroke-width="1"/>
+  <text x="31" y="890" font-family="system-ui,'Segoe UI',sans-serif" font-size="10"
+        font-weight="700" letter-spacing="0.1em" fill="#ff9500" text-anchor="middle"
+        transform="rotate(-90,31,890)">PHASE 3 — SOLUTION</text>
+  <!-- Phase 4 -->
+  <rect x="20" y="1020" width="22" height="440" rx="4" fill="#22c55e20" stroke="#22c55e40" stroke-width="1"/>
+  <text x="31" y="1260" font-family="system-ui,'Segoe UI',sans-serif" font-size="10"
+        font-weight="700" letter-spacing="0.1em" fill="#22c55e" text-anchor="middle"
+        transform="rotate(-90,31,1260)">PHASE 4 — IMPLEMENTATION</text>
+
+  <!-- ===== HELPER MACROS: boxes are rect + text ===== -->
+
+  <!-- START: New Project Idea -->
+  <ellipse cx="700" cy="160" rx="130" ry="36" fill="#00d4ff20" stroke="#00d4ff" stroke-width="2"/>
+  <text x="700" y="156" font-family="system-ui,'Segoe UI',sans-serif" font-size="13"
+        font-weight="700" fill="#e8eaf0" text-anchor="middle">New Project Idea</text>
+  <text x="700" y="172" font-family="system-ui,'Segoe UI',sans-serif" font-size="10"
+        fill="#9b9eb0" text-anchor="middle">or Feature Request</text>
+
+  <!-- Arrow down -->
+  <line x1="700" y1="196" x2="700" y2="228" stroke="#00d4ff" stroke-width="1.5" marker-end="url(#arrow-cyan)"/>
+
+  <!-- DECISION: Quick dev path? -->
+  <polygon points="700,232 820,278 700,324 580,278" fill="#ff950018" stroke="#ff9500" stroke-width="2"/>
+  <text x="700" y="274" font-family="system-ui,'Segoe UI',sans-serif" font-size="11"
+        font-weight="600" fill="#e8eaf0" text-anchor="middle">Quick Dev</text>
+  <text x="700" y="290" font-family="system-ui,'Segoe UI',sans-serif" font-size="11"
+        font-weight="600" fill="#e8eaf0" text-anchor="middle">shortcut?</text>
+
+  <!-- YES branch → Quick Dev box (right) -->
+  <line x1="820" y1="278" x2="1000" y2="278" stroke="#ff9500" stroke-width="1.5" marker-end="url(#arrow-amber)"/>
+  <text x="908" y="270" font-family="system-ui,'Segoe UI',sans-serif" font-size="10" fill="#ff9500">YES</text>
+  <rect x="1000" y="248" width="200" height="60" rx="10" fill="#ff950020" stroke="#ff9500" stroke-width="2"/>
+  <text x="1100" y="274" font-family="system-ui,'Segoe UI',sans-serif" font-size="12"
+        font-weight="700" fill="#ff9500" text-anchor="middle">bmad-quick-dev</text>
+  <text x="1100" y="292" font-family="system-ui,'Segoe UI',sans-serif" font-size="10"
+        fill="#9b9eb0" text-anchor="middle">Skip to implementation</text>
+
+  <!-- Quick Dev → arrow down to Phase 4 entry -->
+  <line x1="1100" y1="308" x2="1100" y2="1060" stroke="#ff9500" stroke-width="1.5" stroke-dasharray="6,4" opacity="0.6"/>
+  <line x1="1100" y1="1060" x2="870" y2="1060" stroke="#ff9500" stroke-width="1.5" stroke-dasharray="6,4" opacity="0.6" marker-end="url(#arrow-amber)"/>
+  <text x="1130" y="700" font-family="system-ui,'Segoe UI',sans-serif" font-size="10"
+        fill="#ff9500" text-anchor="middle" transform="rotate(90,1130,700)">QUICK DEV SHORTCUT</text>
+
+  <!-- NO branch → down -->
+  <line x1="700" y1="324" x2="700" y2="360" stroke="#00d4ff" stroke-width="1.5" marker-end="url(#arrow-cyan)"/>
+  <text x="670" y="348" font-family="system-ui,'Segoe UI',sans-serif" font-size="10" fill="#00d4ff">NO</text>
+
+  <!-- === PHASE 1 === -->
+  <!-- Brainstorm -->
+  <rect x="570" y="364" width="260" height="54" rx="10" fill="#9b59ff18" stroke="#9b59ff" stroke-width="1.5"/>
+  <text x="700" y="386" font-family="system-ui,'Segoe UI',sans-serif" font-size="12"
+        font-weight="600" fill="#e8eaf0" text-anchor="middle">Brainstorm Project</text>
+  <text x="700" y="404" font-family="system-ui,'Segoe UI',sans-serif" font-size="10"
+        fill="#9b9eb0" text-anchor="middle">bmad-brainstorming · Mary</text>
+
+  <line x1="700" y1="418" x2="700" y2="446" stroke="#9b59ff" stroke-width="1.5" marker-end="url(#arrow-violet)"/>
+
+  <!-- Product Brief -->
+  <rect x="570" y="450" width="260" height="54" rx="10" fill="#9b59ff18" stroke="#9b59ff" stroke-width="1.5"/>
+  <text x="700" y="472" font-family="system-ui,'Segoe UI',sans-serif" font-size="12"
+        font-weight="600" fill="#e8eaf0" text-anchor="middle">Create Product Brief</text>
+  <text x="700" y="490" font-family="system-ui,'Segoe UI',sans-serif" font-size="10"
+        fill="#9b9eb0" text-anchor="middle">bmad-product-brief / bmad-prfaq · Mary, Paige</text>
+
+  <line x1="700" y1="504" x2="700" y2="532" stroke="#9b59ff" stroke-width="1.5" marker-end="url(#arrow-violet)"/>
+
+  <!-- Research -->
+  <rect x="570" y="536" width="260" height="54" rx="10" fill="#9b59ff18" stroke="#9b59ff" stroke-width="1.5"/>
+  <text x="700" y="558" font-family="system-ui,'Segoe UI',sans-serif" font-size="12"
+        font-weight="600" fill="#e8eaf0" text-anchor="middle">Research</text>
+  <text x="700" y="576" font-family="system-ui,'Segoe UI',sans-serif" font-size="10"
+        fill="#9b9eb0" text-anchor="middle">Market / Domain / Technical · Mary</text>
+
+  <line x1="700" y1="590" x2="700" y2="618" stroke="#9b59ff" stroke-width="1.5" marker-end="url(#arrow-violet)"/>
+
+  <!-- Document Project -->
+  <rect x="570" y="622" width="260" height="54" rx="10" fill="#9b59ff18" stroke="#9b59ff" stroke-width="1.5"/>
+  <text x="700" y="644" font-family="system-ui,'Segoe UI',sans-serif" font-size="12"
+        font-weight="600" fill="#e8eaf0" text-anchor="middle">Document Project</text>
+  <text x="700" y="662" font-family="system-ui,'Segoe UI',sans-serif" font-size="10"
+        fill="#9b9eb0" text-anchor="middle">bmad-document-project · Paige</text>
+
+  <line x1="700" y1="676" x2="700" y2="704" stroke="#00d4ff" stroke-width="1.5" marker-end="url(#arrow-cyan)"/>
+
+  <!-- === PHASE 2 === -->
+  <!-- Create PRD -->
+  <rect x="570" y="708" width="260" height="54" rx="10" fill="#00d4ff18" stroke="#00d4ff" stroke-width="1.5"/>
+  <text x="700" y="730" font-family="system-ui,'Segoe UI',sans-serif" font-size="12"
+        font-weight="600" fill="#e8eaf0" text-anchor="middle">Create PRD</text>
+  <text x="700" y="748" font-family="system-ui,'Segoe UI',sans-serif" font-size="10"
+        fill="#9b9eb0" text-anchor="middle">bmad-prd · John</text>
+
+  <line x1="700" y1="762" x2="700" y2="790" stroke="#00d4ff" stroke-width="1.5" marker-end="url(#arrow-cyan)"/>
+
+  <!-- Validate PRD -->
+  <polygon points="700,794 820,836 700,878 580,836" fill="#00d4ff14" stroke="#00d4ff" stroke-width="1.5"/>
+  <text x="700" y="832" font-family="system-ui,'Segoe UI',sans-serif" font-size="11"
+        font-weight="600" fill="#e8eaf0" text-anchor="middle">PRD Valid?</text>
+  <text x="700" y="848" font-family="system-ui,'Segoe UI',sans-serif" font-size="10"
+        fill="#9b9eb0" text-anchor="middle">bmad-validate-prd</text>
+
+  <!-- NO → back to PRD -->
+  <line x1="580" y1="836" x2="500" y2="836" stroke="#ff9500" stroke-width="1.5" opacity="0.7"/>
+  <line x1="500" y1="836" x2="500" y2="735" stroke="#ff9500" stroke-width="1.5" opacity="0.7"/>
+  <line x1="500" y1="735" x2="568" y2="735" stroke="#ff9500" stroke-width="1.5" opacity="0.7" marker-end="url(#arrow-amber)"/>
+  <text x="488" y="790" font-family="system-ui,'Segoe UI',sans-serif" font-size="10"
+        fill="#ff9500" text-anchor="middle">revise</text>
+
+  <!-- YES → UX -->
+  <line x1="700" y1="878" x2="700" y2="906" stroke="#00d4ff" stroke-width="1.5" marker-end="url(#arrow-cyan)"/>
+  <text x="720" y="896" font-family="system-ui,'Segoe UI',sans-serif" font-size="10" fill="#00d4ff">YES</text>
+
+  <!-- Create UX -->
+  <rect x="570" y="910" width="260" height="54" rx="10" fill="#00d4ff18" stroke="#00d4ff" stroke-width="1.5"/>
+  <text x="700" y="932" font-family="system-ui,'Segoe UI',sans-serif" font-size="12"
+        font-weight="600" fill="#e8eaf0" text-anchor="middle">Create UX Design</text>
+  <text x="700" y="950" font-family="system-ui,'Segoe UI',sans-serif" font-size="10"
+        fill="#9b9eb0" text-anchor="middle">bmad-ux · Sally</text>
+
+  <line x1="700" y1="964" x2="700" y2="992" stroke="#ff9500" stroke-width="1.5" marker-end="url(#arrow-amber)"/>
+
+  <!-- === PHASE 3 === -->
+  <!-- Architecture -->
+  <rect x="570" y="996" width="260" height="54" rx="10" fill="#ff950018" stroke="#ff9500" stroke-width="1.5"/>
+  <text x="700" y="1018" font-family="system-ui,'Segoe UI',sans-serif" font-size="12"
+        font-weight="600" fill="#e8eaf0" text-anchor="middle">Architecture Design</text>
+  <text x="700" y="1036" font-family="system-ui,'Segoe UI',sans-serif" font-size="10"
+        fill="#9b9eb0" text-anchor="middle">bmad-architecture · Winston</text>
+
+  <line x1="700" y1="1050" x2="700" y2="1078" stroke="#ff9500" stroke-width="1.5" marker-end="url(#arrow-amber)"/>
+
+  <!-- Epics & Stories -->
+  <rect x="570" y="1082" width="260" height="54" rx="10" fill="#ff950018" stroke="#ff9500" stroke-width="1.5"/>
+  <text x="700" y="1104" font-family="system-ui,'Segoe UI',sans-serif" font-size="12"
+        font-weight="600" fill="#e8eaf0" text-anchor="middle">Create Epics &amp; Stories</text>
+  <text x="700" y="1122" font-family="system-ui,'Segoe UI',sans-serif" font-size="10"
+        fill="#9b9eb0" text-anchor="middle">bmad-create-epics-and-stories · Winston</text>
+
+  <line x1="700" y1="1136" x2="700" y2="1164" stroke="#ff9500" stroke-width="1.5" marker-end="url(#arrow-amber)"/>
+
+  <!-- Readiness Check -->
+  <polygon points="700,1168 820,1210 700,1252 580,1210" fill="#ff950014" stroke="#ff9500" stroke-width="1.5"/>
+  <text x="700" y="1206" font-family="system-ui,'Segoe UI',sans-serif" font-size="11"
+        font-weight="600" fill="#e8eaf0" text-anchor="middle">Implementation</text>
+  <text x="700" y="1222" font-family="system-ui,'Segoe UI',sans-serif" font-size="11"
+        font-weight="600" fill="#e8eaf0" text-anchor="middle">Ready?</text>
+
+  <!-- NO → back to Architecture -->
+  <line x1="580" y1="1210" x2="480" y2="1210" stroke="#ff9500" stroke-width="1.5" opacity="0.7"/>
+  <line x1="480" y1="1210" x2="480" y2="1023" stroke="#ff9500" stroke-width="1.5" opacity="0.7"/>
+  <line x1="480" y1="1023" x2="568" y2="1023" stroke="#ff9500" stroke-width="1.5" opacity="0.7" marker-end="url(#arrow-amber)"/>
+  <text x="466" y="1120" font-family="system-ui,'Segoe UI',sans-serif" font-size="10"
+        fill="#ff9500" text-anchor="middle">refine</text>
+
+  <!-- YES → Sprint Planning -->
+  <line x1="700" y1="1252" x2="700" y2="1280" stroke="#22c55e" stroke-width="1.5" marker-end="url(#arrow-green)"/>
+  <text x="720" y="1270" font-family="system-ui,'Segoe UI',sans-serif" font-size="10" fill="#22c55e">YES</text>
+
+  <!-- === PHASE 4 === -->
+  <!-- Sprint Planning -->
+  <rect x="570" y="1284" width="260" height="54" rx="10" fill="#22c55e18" stroke="#22c55e" stroke-width="1.5"/>
+  <text x="700" y="1306" font-family="system-ui,'Segoe UI',sans-serif" font-size="12"
+        font-weight="600" fill="#e8eaf0" text-anchor="middle">Sprint Planning</text>
+  <text x="700" y="1324" font-family="system-ui,'Segoe UI',sans-serif" font-size="10"
+        fill="#9b9eb0" text-anchor="middle">bmad-sprint-planning · Amelia</text>
+
+  <line x1="700" y1="1338" x2="700" y2="1366" stroke="#22c55e" stroke-width="1.5" marker-end="url(#arrow-green)"/>
+
+  <!-- Dev Story → Code Review -->
+  <rect x="570" y="1370" width="260" height="54" rx="10" fill="#22c55e18" stroke="#22c55e" stroke-width="1.5"/>
+  <text x="700" y="1392" font-family="system-ui,'Segoe UI',sans-serif" font-size="12"
+        font-weight="600" fill="#e8eaf0" text-anchor="middle">Dev Story → Code Review</text>
+  <text x="700" y="1410" font-family="system-ui,'Segoe UI',sans-serif" font-size="10"
+        fill="#9b9eb0" text-anchor="middle">bmad-dev-story · bmad-code-review · Amelia</text>
+
+  <line x1="700" y1="1424" x2="700" y2="1452" stroke="#22c55e" stroke-width="1.5" marker-end="url(#arrow-green)"/>
+
+  <!-- QA Tests -->
+  <rect x="570" y="1456" width="260" height="54" rx="10" fill="#22c55e18" stroke="#22c55e" stroke-width="1.5"/>
+  <text x="700" y="1478" font-family="system-ui,'Segoe UI',sans-serif" font-size="12"
+        font-weight="600" fill="#e8eaf0" text-anchor="middle">QA Tests</text>
+  <text x="700" y="1496" font-family="system-ui,'Segoe UI',sans-serif" font-size="10"
+        fill="#9b9eb0" text-anchor="middle">bmad-qa-generate-e2e-tests · Amelia</text>
+
+  <line x1="700" y1="1510" x2="700" y2="1534" stroke="#22c55e" stroke-width="1.5" marker-end="url(#arrow-green)"/>
+
+  <!-- END: Deployed Feature -->
+  <ellipse cx="700" cy="1544" rx="140" ry="36" fill="#22c55e28" stroke="#22c55e" stroke-width="2"/>
+  <text x="700" y="1540" font-family="system-ui,'Segoe UI',sans-serif" font-size="13"
+        font-weight="700" fill="#22c55e" text-anchor="middle">Deployed Feature</text>
+  <text x="700" y="1556" font-family="system-ui,'Segoe UI',sans-serif" font-size="10"
+        fill="#9b9eb0" text-anchor="middle">Retrospective · bmad-retrospective</text>
+
+  <!-- ===== CORRECT COURSE escape hatch ===== -->
+  <rect x="1080" y="1370" width="200" height="60" rx="10" fill="#ff000018" stroke="#ff4444" stroke-width="2" stroke-dasharray="5,3"/>
+  <text x="1180" y="1396" font-family="system-ui,'Segoe UI',sans-serif" font-size="12"
+        font-weight="700" fill="#ff4444" text-anchor="middle">bmad-correct-course</text>
+  <text x="1180" y="1414" font-family="system-ui,'Segoe UI',sans-serif" font-size="10"
+        fill="#9b9eb0" text-anchor="middle">Escape hatch — any phase</text>
+  <!-- Arrow from Phase 4 box to correct-course -->
+  <line x1="830" y1="1397" x2="1078" y2="1397" stroke="#ff4444" stroke-width="1.5"
+        stroke-dasharray="5,3" opacity="0.7" marker-end="url(#arrow-amber)"/>
+  <!-- Arrow from correct-course back to Phase 2 -->
+  <line x1="1280" y1="1397" x2="1320" y2="1397" stroke="#ff4444" stroke-width="1.5" stroke-dasharray="5,3" opacity="0.7"/>
+  <line x1="1320" y1="1397" x2="1320" y2="730" stroke="#ff4444" stroke-width="1.5" stroke-dasharray="5,3" opacity="0.7"/>
+  <line x1="1320" y1="730" x2="832" y2="730" stroke="#ff4444" stroke-width="1.5" stroke-dasharray="5,3" opacity="0.7" marker-end="url(#arrow-amber)"/>
+  <text x="1340" y="1080" font-family="system-ui,'Segoe UI',sans-serif" font-size="10"
+        fill="#ff4444" text-anchor="middle" transform="rotate(90,1340,1080)">CORRECT COURSE (any phase)</text>
+
+  <!-- Legend -->
+  <rect x="48" y="1480" width="420" height="58" rx="8" fill="#ffffff05" stroke="#ffffff0f" stroke-width="1"/>
+  <text x="68" y="1500" font-family="system-ui,'Segoe UI',sans-serif" font-size="10"
+        font-weight="700" letter-spacing="0.08em" fill="#6b7280">LEGEND</text>
+  <ellipse cx="80" cy="1520" rx="14" ry="8" fill="#00d4ff20" stroke="#00d4ff" stroke-width="1.5"/>
+  <text x="102" y="1524" font-family="system-ui,'Segoe UI',sans-serif" font-size="10" fill="#9b9eb0">Start / End</text>
+  <rect x="160" y="1512" width="18" height="18" rx="4" fill="#9b59ff18" stroke="#9b59ff" stroke-width="1.5"/>
+  <text x="186" y="1524" font-family="system-ui,'Segoe UI',sans-serif" font-size="10" fill="#9b9eb0">Process step</text>
+  <polygon points="265,1521 285,1514 305,1521 285,1528" fill="#ff950018" stroke="#ff9500" stroke-width="1.5"/>
+  <text x="314" y="1524" font-family="system-ui,'Segoe UI',sans-serif" font-size="10" fill="#9b9eb0">Decision</text>
+  <line x1="370" y1="1521" x2="400" y2="1521" stroke="#ff4444" stroke-width="1.5" stroke-dasharray="4,2" marker-end="url(#arrow-amber)"/>
+  <text x="408" y="1524" font-family="system-ui,'Segoe UI',sans-serif" font-size="10" fill="#9b9eb0">Escape hatch</text>
+
+  <!-- Watermark -->
+  <text x="1352" y="1542" font-family="system-ui,'Segoe UI',sans-serif" font-size="10"
+        letter-spacing="0.06em" fill="#ffffff14" text-anchor="end">BMAD METHOD</text>
+</svg>
+</body>
+</html>
