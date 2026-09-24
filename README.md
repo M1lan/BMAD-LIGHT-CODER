@@ -1,3 +1,7 @@
+> **Private fork (BMAD-CODER-LIGHT).** This is upstream BMAD-METHOD plus the
+> skills-first solo-dev variant in [`coder-light/`](coder-light/README.md).
+> Fork workflow: see the fork section in [`AGENTS.md`](AGENTS.md).
+
 ![BMad Method](banner-bmad-method.png)
 
 

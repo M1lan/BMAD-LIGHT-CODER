@@ -30,3 +30,15 @@ Read `tools/release.md` before cutting a release. Stamp on `dev`, fast-forward
 `main` with `git push origin dev:main`, tag that commit, then stamp the next
 placeholder on `dev`. No release PR or back-merge. The 6.12 npm installer is
 maintained separately on `V6.12`.
+
+## Fork: BMAD-CODER-LIGHT
+
+This checkout is a private fork. Upstream rules above apply, except releases: the fork never releases or pushes to upstream.
+
+- Remotes: `origin` is `github.com/M1lan/BMAD-LIGHT-CODER`, `upstream` is `github.com/bmad-code-org/BMAD-METHOD`.
+- Branches: `main` mirrors `upstream/main`, fast-forward only, never commit on it. `coder-light` is `main` plus the fork commits. Sync with `just sync-upstream` (rebase, archive tag first); preview with `just upstream-status`.
+- Keep the fork stack small: add files, do not delete or rewrite upstream files, so rebases stay conflict-free.
+- `coder-light/` is a self-contained skills-first solo-dev variant with its own `AGENTS.md`. Never apply method-module conventions inside it.
+- The pre-v7 snapshot of this fork lives at tag `archive/coder-light-2026-05`.
+- Node tooling: use pnpm (`pnpm dlx`), never npm or npx. `tools/quality.py` calls `npm` inside `docs-site/`; run the Python side with `just verify` instead.
+- `.python-version` pins 3.11. Without a local 3.11, run with `UV_PYTHON=3.13` (any version at or above 3.11 works).
